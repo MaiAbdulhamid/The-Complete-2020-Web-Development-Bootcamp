@@ -259,6 +259,14 @@ selector:pseudo-class {
 -	top with relative make margin top from the static position.
 
 ### 5.6. Absolute Positioning
--	.
+-	with absolute positioning we positioning the element relative to it's parent	.
+-	it is about adding a margin relative to it's parent element.
+-	fixed position -> fixs element in it's position relative to the body of the website and it doesn't moves despite scrolling.	.
 
+### 5.7. The Dark Art of Centering Elements
+-	text-align: center -> works with inline and block displayed elements that doesn't have width.
+-	margin: auto -> works with elements that have width.
 
+### 5.8. Font Styling in Our Personal Site
+-	font-family: sans, sans-serif -> main fonts.
+-	google fonts to specific font.
