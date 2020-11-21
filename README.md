@@ -269,4 +269,21 @@ selector:pseudo-class {
 
 ### 5.8. Font Styling in Our Personal Site
 -	font-family: sans, sans-serif -> main fonts.
--	google fonts to specific font.
+-	google fonts to specific font. Link the fonts to html and use it with font-family property.
+
+### 5.9. CSS sizing
+-	font-size: px -> static size.
+-	% to make size dynamic.
+-	100% == 16px
+-	1 em == 16px
+-	with % and em font size get inhereted from parent and added to the child.
+-	The difference between px and % or em that px doesn't inherte from parent.
+-	rem = ignore the parent size(root element), that mean parent size won't affect on the child.
+-	to change font color use color propery.
+-	font-weight.
+-	line-height: number -> number without measuring unit.
+### 5.10. CSS float and clear
+-	float element left or right.
+-	float make other elements at the same row.
+- 	other elements use clear property to clear float Effect.
+-	clear value is anti the float value.
