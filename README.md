@@ -4,10 +4,10 @@
 ## Section 1: Front-End Web Development
 
 ### 1.1. How Does the Internet Actually Work?
--	Internet is long piece of wire, And the wire connect different computers to each other. It allows computers to transfer data through this giant wire
+-	**Internet** is a long piece of wire, And the wire connect different computers to each other. It allows computers to transfer data through this giant wire
 -	A server is a computer that provides files and data to other computers, it allows access 24/7.
 -	A client is a computer that any user is used to access the internet.
--	When browser request a website, the request sent to ISP (Internet server provider: The company we pay for internet service) then it search at DNS that contains websites IP addresses. Once the DNS finds the IP address it sends it back to the browser vis ISP. Then the browser sends a direct request through ISP and this message will be delivered via Internet Backbone to the server that is located that IP address. On that server there is all files that needed to view the website home page. The server sends this files back to the client through the internet backbone and client get to see website in the browser. All of that happens in milliseconds.
+-	When browser request a website, the request sent to **ISP** (Internet server provider: The company we pay for internet service) then it search at DNS that contains websites IP addresses. Once the DNS finds the IP address it sends it back to the browser vis ISP. Then the browser sends a direct request through ISP and this message will be delivered via Internet Backbone to the server that is located that IP address. On that server there is all files that needed to view the website home page. The server sends this files back to the client through the internet backbone and client get to see website in the browser. All of that happens in milliseconds.
 
 ### 1.2. How Do Websites Actually Work?
 -	To access web page we need browser (allows to look up ip address and recives data from server).
@@ -29,14 +29,14 @@
 -	Ex: Spacing breack tag <br />.
   
 ### 2.2. The Anatomy of an HTML Tag
--	<startTag> Content </EndTag>
+-	< startTag > Content </ EndTag >
 -	Horizontal line tag hr accepts attribute size, noshade,..
 -	Attributes specify modification to the default element.
--	Center content tag  <center>content</center>.
--	Comments  are not interpreted by the compiler <!-- Comment -->.
+-	Center content using tag  < center >content</ center >.
+-	Comments  are not interpreted by the compiler < !-- Comment -- >.
   
 ### 2.3. What is The HTML Boilerplate?
--	Is A code template that could reuse.
+-	It Is a code template that could be reuse.
   
 ```
 <!doctype html>
@@ -58,27 +58,26 @@
 </body>
 </html>
 ```
-
+-	meta tag utf-8 tell the browser that all text in the page are encoded using utf-8 encoding system wich is the standered encoding.
 -	Unicode “utf-8” has all characters and emojis.
--	There is a different types of meta tags.
+-	There is a different types of meta tags for diffrent purposes.
 
 ### 2.4. How to Structure Text in HTML?
 -	The code goes inside the body tag.
 -	Paragraph tag p.
--	emphasis  Tag em tells the browser that the words between it is emphasis, not just about style.
+-	emphasis Tag em tells the browser that the words between it is emphasis, not just about style.
 -	italic tag i style element.
 -	Stong tag strong tells the browser that the words between it is Strong Importance Element.
 -	Bold tag bold styles bold.
 
 ### 2.5. HTML Lists
--	Ordered list ol.
--	There is two types of lists.
+-	There are two types of lists.
 -	Ordered lists ol and unordered lists ul.
 -	Each type has children li for each item of the list.
--	Ol list has attr type start and type to control the list items.
+-	Ol list has attributes: start and type to control the list items.
 
 ### 2.6. HTML Image Elements
--	Self-closing tag that must be with src attr to the image url.
+-	Self-closing tag that must be with src attribute to the image url.
 -	alt attr helps google searching.
 
 ### 2.7. HTML Links and Anchor Tags
@@ -90,9 +89,9 @@
 ## Section 3: Intermediate HTML
 
 ### 3.1. HTML Tables
--	Tables main tag table, and everything between is the actual content.
+-	Tables main tag is table, and everything between is the actual content.
 -	To make row use tag tr.
--	To make cell inside the row td.
+-	To make cell inside the row use td.
 
 ```
 <table>
@@ -111,11 +110,11 @@
 ```
 
 ### 3.2. HTML forms
--	main form tag to define what should go into our form.
--	Label tag to some text.
--	To make input change the type to what we need.
--	Textarea to write message.
--	to submit button use input type=”submit”
+-	main form tag is form to define what should go into our form.
+-	Label tag to some text related to the input element.
+-	To use different inputs simply change the type of the input to what is needed.
+-	Textarea tag to write message.
+-	To submit form button use input with type=”submit”
 
 ### 3.3. publish website
 -	use github to publish free.
@@ -130,16 +129,16 @@
 ## Section 4: Introduction to CSS
 
 ### 4.1. Introduction to css
--	Css: cascading style sheet.
+-	CSS: cascading style sheet.
 -	Styling html.
 
 ### 4.2. Inline css
--	Going into the tag and change style attribute = “style value”.
+-	Going into the tag and change style attribute = “property:value;”.
 
 ### 4.3. Internal css
 -	Add style tag inside the head tag.
 -	Select element inside style tag.
--	Make inside {} Property : value.
+-	Make styles -> selector {Property : value} .
 
 ```
 <head>
@@ -174,7 +173,8 @@ body {
 ```
 selector {
   propery: value;
-}//who{what: how;}
+}
+//who { what: how; }
 ```
 
 ### 4.7. CSS selectors
@@ -194,7 +194,7 @@ tagName {
 }
 ```
 
--	[Selectors refrence:](https://www.w3schools.com/cssref/css_selectors.asp).
+-	[Selectors refrence](https://www.w3schools.com/cssref/css_selectors.asp).
 
 ### 4.8. CSS Ids
 -	Using id attribute.	
