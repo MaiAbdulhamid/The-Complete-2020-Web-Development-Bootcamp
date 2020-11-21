@@ -237,16 +237,28 @@ selector:pseudo-class {
 -	Margin makes space around elements and pushing them away.
 -	Inspect in chrome developer tools show box model to customize element.
 ### 5.4. CSS display property
--	Width and height of element are pushing any other element.
+-	block elemnts takes the whole width of the document.
+-	it doesn't allow another element to set at the same line.
+-	inline elements takes the width of the content only.
+-	it doesn't allow to change the element width.
+-	there is inline-block value, that allows to change width and set elements at the same line.
+-	img element treats as inline-block.
+-	none value removes the element from the web page as it didn't exist.
+-	visibility: hidden -> disappear the element but still exist at the dom.
+### 5.5. CSS Static and Relative Positioning
+-	there is default roles despite any css styles.
+	-	first role : content is everything -> content is the first thing that determined how large things get displayed and what the height and width will be.
+	-	second role : the order of elements that comes from html code -> how we write code into html file is how it be displayed.
+	-	third role : children sit on parents -> that means that child goes on top of the parent(static position).
+-	To make changes into the order of elements use position property.
+-	static position is the default position of all html elements.
+-	relative position it allows us to position element that we select relative to how it would be positioned had it been static.
+-	coordinates: top, bottom, left, right -> determines we want to move element.
+-	when move element with relative position it doesn't affect any other thing in the screen.
+-	it as if the old position is kept and everything else flows around it.
+-	top with relative make margin top from the static position.
 
-
-
-
-
-
-
-
-
-
+### 5.6. Absolute Positioning
+-	.
 
 
