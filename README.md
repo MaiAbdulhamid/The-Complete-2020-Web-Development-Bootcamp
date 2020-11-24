@@ -287,3 +287,264 @@ selector:pseudo-class {
 -	float make other elements at the same row.
 - 	other elements use clear property to clear float Effect.
 -	clear value is anti the float value.
+
+## Section 6: Introduction to Bootstrap
+
+### 6.1. What is Bootstrap?
+-	Bootstrap is a front-end library, It's a free open source.
+-	front-end is whatever the user sees.
+-	backend determine how everything is going to work.
+-	Responsive means that it response to the view port.
+
+### 6.2. Installing Bootstrap
+-	copy bootstap cdn -> the simplest way.
+-	cdn -> stands for content delivery network.
+-	the concept is instead of hosting website in single location, you have hole bunch of points where that website can be accessed, it looks for the shortest location that website can be delivered.
+-	when browser reachs cdn link it looks for the shortest root to download bootstrap files if the user doesn't download it.
+-	when it dowloaded broweser cashes files and doesn't need to redownload it.
+
+	```
+	
+		<!doctype html>
+		<html lang="en">
+		  <head>
+		    <!-- Required meta tags -->
+		    <meta charset="utf-8">
+		    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		    <!-- Bootstrap CSS -->
+		    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+		    <title>Hello, world!</title>
+		  </head>
+		  <body>
+		    <h1>Hello, world!</h1>
+
+		    <!-- Optional JavaScript; choose one of the two! -->
+
+		    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+		    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+		    <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
+		    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+		    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+		    -->
+		  </body>
+		</html>
+	```
+### 6.3. Web Design 101 - Wireframing
+-	Wireframing -> settle all design before coding it(using sketch).
+-	markup -> high fidelity representation of design. what you see is what you end up getting(using photoshop).
+-	prototyppe -> animated version of website.
+
+### 6.4. The Bootstrap Navigation Bar
+-	[Documentation](https://getbootstrap.com/docs/4.5/components/navbar/)
+### 6.5. Bootstrap Grid Layout System
+-	[Documntaion](https://getbootstrap.com/docs/4.5/layout/grid/)
+### 6.6. A Note About CSS Link Order
+-	CSS code is executed from bottom to top so the order of your code matters
+-	Unlike CSS and JavaScript, HTML code is executed from top to bottom so the order of your code matters.
+### 6.7. Bootstrap Containers
+-	all content goes inside container.
+-	container-fluid -> takes 100% width of the screen.
+### 6.8. Bootstrap Buttons & Font Awesome
+-	[Buttons Documentation](https://getbootstrap.com/docs/4.5/components/buttons/).
+-	link fontAwesome library to our website.
+-	[fontAwesome](https://fontawesome.com/).
+
+## Section 7: Intermediate Bootstrap
+
+### 7.1. The Bootstrap Carousel
+-	slideshow.
+-	set carousel options by adding data-option="value".
+-	[Documentation](https://getbootstrap.com/docs/4.5/components/carousel/).
+-	aria-hidden="true" -> to be hidden from screen reader.
+-	class="sr-only" -> to screen reader only.
+### 7.2. The Bootstrap Cards
+-	[Documentation](https://getbootstrap.com/docs/4.5/components/card/).
+### 7.3. The CSS Z-Index and Stacking Order
+-	Each element has x, y and z aixs.
+-	the default z-index for all elements is 0.
+-	-1 -> shows the element behind everything.
+-	z-index only work when element has position fixed, absolute and relative.
+-	static position doesn't make z-index work.
+
+### 7.4. Media Query Breakpoints
+-	Make website responsive by media query.
+-	@media < type > ( feature )
+-	there is many types of media like print, speach, screen.
+### 7.5. How to become a Better Programmer
+-	Code Refactoring:
+	- Readablity -> easy to understand not just for urself but to your future self, and for others.
+	- Modularity -> how easy to use bets of code.
+	- Efficiency -> how fast does your code run.
+	- length.
+### 7.6. Advanced CSS - Combining Selectors
+-	selector1, selector2 { sharedProperty }
+-	Hierarchical Selectors -> selector1(parent) selector2(child){propertyAppiedToChild}
+-	Combined Selectors -> selector1.selctor2{ProprtyToTheSameElement}
+### 7.7. Advanced CSS - Selector Priority
+-	the last css role has priorety over everything above it.
+-	class is more specific than html selector, So it has high priorty.
+-	id has the highest priorty than class and html.
+## Section 8: Web Design School - Create a Website that People Love
+### 8.1. Introduction to web Design
+-	Users take milliseconds to judge the product through it's design.
+-	Design is the cheapest way to make product look expensive.
+### 8.2. principles of design - 1. Color Theory
+-	principles of design:
+	- color theory -> Every main color have a mood.
+		1. Red -> love, energy, intensity.
+		2. Yellow -> Joy, intellect, attention
+		3. Green ->	freshness, safty, growth.
+		4. Blue -> stability, trust, serenity.
+		5. Purble -> Royality, wealth, feminity.
+-	what msg I wanna give to User?
+-	colorbullet.
+
+### 8.3. principles of design - 2. Typography
+-	like colors, fonts have different moods.
+-	serif family -> traditional, stable, respectable.
+-	use only 2 fonts to one design.
+### 8.4. principles of design - 2. User Interface
+1.	hierarchy:
+	- eyes look at big items first.
+	- color can make eyes look at the item directly.
+2.	layout :
+	- different size, image, shape .
+	- lenght of each line of text doesn't be too short or too long.
+3. Alignment:
+	- Position items on website relative to each other.
+	- reduce the number of aligments
+4. white space (space around elements):
+	- By adding more space around the element it makes design more minimilize and more elevated.
+5. Audience:
+	- Think about the audience and what important for them.
+	- flexibility important for design.
+	
+### 8.5. principles of design - 3. User Experience
+1.	simplicity.
+2.	Consistency:
+	- but also keep the functionality.
+	- make it simple to use, not make user learn how to use.
+3. Reading Patterns
+4. All platform design
+	- Responsive is very important.
+	- Not take much scroll to know what is going on in the website.
+	- Not make much warning messages.
+5. **Don't use Your Powers For Evil**
+	- Don't make user make actions that he don't neccessarly do this.
+	Ex. make btn that buy for something colored to buy more than the main buying btn.
+	- Help user to do what they want to do.
+### 8.6. practise
+-	[Hotel page for practise](https://www.canva.com/design/DAELSe8JfD4/3vIsqI3kACNKsbFqYu-9lQ/view?utm_content=DAELSe8JfD4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1).
+
+## Section 9: Introduction to Javascript
+
+### 9.1. Introduction to Javascript
+-	It also known [EcmaScript](https://en.wikipedia.org/wiki/ECMAScript).
+-	java vs javaScript is like car vs carprt.
+- 	js id interpreted programming language, java is compiled programming language.
+-	It started as front-end language to make animation.
+	 
+### 9.2. Javascript Alerts - Adding Behaviour
+-	Google chrome provide developer tool console to write line by line js code.
+-	using source tap inside console tap to write multiple lines of js code.
+-	source -> snippts -> new snippt (file.js);
+
+```
+	alert('Message to be alerted.');
+	//keyword("")end
+```
+### 9.3. Data Types
+-	String -> everything inside "" or ''.
+-	Numbers.
+-	Boolean -> true or false.
+-	typeof(variable) -> tells the type of the variable.
+### 9.4. Variables
+-	prompt('msg') -> allows user to write input.
+-	var name = value -> to define variable.
+### 9.5. Naming and Naming Conventions
+-	naming variables using camelCase.
+-	always give meaning names to variables.
+-	variables name can't be a keyword.
+-	variables name can't begin with numbers but it can contain number.
+-	variables name can't contain Spaces.
+-	numbers, characters, _ , $ are the only simpoles that valid.
+### 9.6. String Concatenation
+-	concat two or more strings using + -> Str1 + str2 = srt1str2.
+### 9.7. String Lengths
+-	str.length -> returns the numbers of str characters.
+### 9.8. Slicing and Extracting Parts of a String
+-	programmers always count from 0.
+-	slice(startindex, endIndex) -> Starting from StartIndex untill but not incloding endIndex and returns that new str.
+
+```
+	var tweet = prompt("Msg limited to 140 char.")
+	var sliceTweet = tweet.slice(0, 140)
+	alert("You tweeted: " + sliceTweet)
+```
+### 9.9. Changing Casing in Text
+-	str.toUpperCase() -> all characters to upperCase.
+-	str.toLowerCase() -> all characters to lowerCase.
+```
+	var name = prompt("Enter Name")
+	var fLetter = name.slice(0, 1);
+	var restOfLetters = name.slice(1, name.length);
+	alert("Your name is: " + fLetter.toUpperCase() + restOfLetters.toLowerCase())
+```
+### 9.10. Basic Arithmetic and the Modulo Operator in Javascript
+-	Modulo -> gives the remainer of the division (num % num).
+
+### 9.11. Increment and Decrement
+-	var x = 1 ; x = x + 1; -> Equals x++ ->Equals x += x
+-	var x = xNum; var y = yNum -> x += y // adding y to x
+-	+= , -=, \*=, /= all works the same.
+
+### 9.12. Functions Part 1: Creating and Calling Functions
+-	Functions -> is package reapeted code into {} and giving it a name.
+-	all that blocked code will be exicuted when you call that function.
+-	creating a function -> function funcName(){//package of code}
+-	calling function -> funcName();.
+
+### 9.13. Functions Part 2: Parameters and Arguments
+-	functions take inputs called parameters.
+-	It's variable that can be used in this function.
+-	Math.floor(number) -> round down Number.
+
+```
+	function lifeInWeeks(age) {
+
+	    //Write your code here.
+	    var   leftedYears = 90 - age;
+	    var   days = leftedYears * 365;
+	    var   weeks = leftedYears * 52;
+	    var   months = leftedYears * 12;
+	    console.log("You have " + days  + " days, " + weeks + " weeks, and " + months + " months left.")
+
+	}
+	lifeInWeeks(25)
+
+```
+
+### 9.14. Functions Part 3: Outputs & Return
+-	In order to have output from function we have to use return keyword.
+
+## Section 10: Intermediate Javascript
+### 10.1. Random Number Generation in
+
+
+
+
+
+
+
+
+
+
+
+
+
+
