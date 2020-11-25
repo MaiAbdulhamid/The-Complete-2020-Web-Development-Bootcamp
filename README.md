@@ -735,3 +735,8 @@ function fibonacciGenerator (n) {
 -	[attributes](https://developer.mozilla.org/en-US/docs/Web/API/Element/attributes).
 -	[setAttribute](https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute), [getAttribute](https://developer.mozilla.org/en-US/docs/Web/API/Element/getAttribute), [toggleAttribute](https://developer.mozilla.org/en-US/docs/Web/API/Element/toggleAttribute)
 
+## Section 12: Boss Level Challenge 1 - The Dicee Game
+-	Dicee Game project.
+## Section 13: Advanced Javascript and DOM Manipulation
+-	Drum kit project.
+
