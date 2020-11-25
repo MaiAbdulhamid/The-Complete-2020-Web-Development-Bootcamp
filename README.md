@@ -497,6 +497,7 @@ selector:pseudo-class {
 ```
 ### 9.10. Basic Arithmetic and the Modulo Operator in Javascript
 -	Modulo -> gives the remainer of the division (num % num).
+-	Modulo checkes if a number is fully divisible by another number.
 
 ### 9.11. Increment and Decrement
 -	var x = 1 ; x = x + 1; -> Equals x++ ->Equals x += x
@@ -534,17 +535,203 @@ selector:pseudo-class {
 
 ## Section 10: Intermediate Javascript
 ### 10.1. Random Number Generation in
+-	Math.random() -> generates random number between 0  and 0.999999999999 it never reachs 1.
+-	[Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random).
+-	Math.random() * num -> range of numbers is from 0 to less than (not including) num.
+-	Pseudorandom number generators](https://www.youtube.com/watch?v=GtOt7EBNEwQ).
+-	Math.floor(Math.random() * n) +1 -> generates Number between 1 to n.
 
+### 10.2. Control Statements: Using If-Else Conditionals & Logic
+-	control flow -> controling the flow of code depends on condition.
+### 10.3. Comparators and Equality
+-	Comparators -> compare two different values.
+-	===, ==, <, >, <=, >=, !==, !=.
+-	The important difference between === and == is even though === check for equality also checking the type of data type.
 
+### 10.4. Combining Comparators
+-	AND &&, OR ||, NOT !.
 
+### 10.5. Coding Exercise 5: BMI Calculator
 
+```
+function bmiCalculator (weight, height) {
 
+    var interpretation = weight / (height *2);
 
+    if (interpretation < 18.5)
 
+    {
 
+        return "Your BMI is " + interpretation + ", so you are underweight.";
 
+    }
 
+    else if (interpretation >= 18.5 && interpretation <= 24.9)
 
+    {
 
+        return "Your BMI is " + interpretation + ", so you have a normal weight.";
 
+    }
+
+    else {
+
+        return "Your BMI is " + interpretation + ", so you are overweight.";
+
+    }
+
+    return interpretation;
+
+}
+```
+
+### 10.6. Coding Exercise 6: Leap Year Challenge
+
+```
+function isLeap(year) {   
+
+    if (year % 4 === 0 ) {
+        if(year % 100 === 0){
+            if(year % 400 === 0){
+                return "Leap year."
+            }else{
+                return "Not leap year."
+            }
+        }else{
+            return "Leap year."
+        }
+        
+    } else {
+        return "Not leap year."
+    }
+
+}
+```
+
+### 10.7. Collections: Working with Javascript
+-	Arrays -> is a collection of related items that can be stored together into the same variable.
+-	var arr = [item1, item2, item3, ....].
+-	arr[0] -> returns the fisrt index.
+-	arr.length -> the number of array items.
+-	arr.includes(item) -> check if this item is exist, it returns true or false.
+
+### 10.8. Adding Elements and Intermediate
+-	arr.push(value) -> Adding new item at the end of the array.
+-	arr.pop() -> Remove the last item of the array.
+-	fizzBuzz Game :
+```
+var result = [];
+var count = 1;
+function fizzBazz(){
+	while(count <= 100 ){ //while loop
+		if (count % 3 === 0 && count % 5 ===0){
+			result.push("fizzBuzz")
+		}else if(count % 3 === 0){
+			result.push("fizz")
+		}else if (count % 5 === 0){
+			result.push("buzz")
+		}else{
+			result.push(count)
+		}
+		count++;
+	}
+	console.log(result);
+}
+```
+-	The order of if statements is matter.
+
+### 10.9. Coding Exercise 7: Who's Buying Lunch?
+```
+function whosPaying(names) {
+ 
+    var arrayLength = names.length;
+    
+    var randomIndex = Math.floor(Math.random() * arrayLength);
+    
+    return names[randomIndex] + " is going to buy lunch today!";
+  
+}
+```
+
+### 10.10. Control Statements: While Loops
+-	To make sequance of data.
+-	while(end){//Sequance something ; change}
+-	satete -> if something is true.
+-	The bad thing about while loop is that it will run the program as long the condition is true, So it might be infinte loop.
+```
+	//Bottels Challenge solution
+	var numberOfBottles = 99
+	while (numberOfBottles >= 0) {
+	    var bottleWord = "bottle";
+	    if (numberOfBottles === 1) {
+		bottleWord = "bottles";
+	    } 
+	    console.log(numberOfBottles + " " + bottleWord + " of beer on the wall");
+	    console.log(numberOfBottles + " " + bottleWord + " of beer,");
+	    console.log("Take one down, pass it around,");
+		numberOfBottles--;
+	    console.log(numberOfBottles + " " + bottleWord + " of beer on the wall.");
+}
+```
+### 10.11. Control Statements: For Loops
+-	for(start; end; change){//Sequance something}.
+-	iterate -> run a piece of code many times.
+-	Fibonacci Callenge
+```
+function fibonacciGenerator (n) {
+        var output = [];
+	if(n === 1){
+		output = [0];
+	}else if (n=== 2){
+		output = [0, 1];
+	}else{
+		output = [0, 1];
+		for(var i = 2; i< n; i++){
+			output.push(output[output.length -2] + output[output.length - 1]);
+		}
+	}
+	return output;
+}
+```
+-	[Challenge flowchart](https://drive.google.com/file/d/1g8vVtqhSj44vcElfc-HK0nMbecteW8Yg/view).
+
+## Section 11: The Document Object
+
+### 11.1. Adding Javascript to Websites
+-	Inline js -> By adding attributes to html elements, EX. onload="jsCode".(Not a good practice).
+-	Enternal -> By adding script type="text/javascript" tag to page and write js code inside it.
+-	External file -> script tag with src to the external js file.
+-	js scripts tag goes at the bottom of code unlike css links.
+
+### 11.2. Object Model (DOM)
+-	DOM -> Document Object Model.
+-	it turns the document into a tree of objects that can be related to each others.
+-	[HTML tree Generator Extention](https://chrome.google.com/webstore/detail/html-tree-generator/dlbbmhhaadfnbbdnjalilhdakfmiffeg).
+-	Each child enhirets a document object.
+-	[firstElementChild](https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/firstElementChild).
+-	[lastElementChild](https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/lastElementChild).
+-	Objects inside the DOM has properties(describes thomething about object) and methods(the things that object can do).
+-	Metod -> is associated to an object.
+
+### 11.3. Selecting HTML Elements with js
+-	[getElementById](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById).
+-	[querySelector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector).
+-	[querySelectorAll](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll).
+
+### 11.4. Manipulating and Changing Styles
+-	style property -> to change the css styles.
+-	[Css properites in js](https://www.w3schools.com/jsref/dom_obj_style.asp).
+### 11.5. The Separation of Concerns: Structure vs Style vs Behaviour
+-	html file -> to strucure
+-	css files -> to style
+-	js file -> to behaviour
+-	Adding classes using js and style that classes using css.
+-	element.classList -> returns the list of classes.
+-	element.classList.add("className") -> add class to element.
+### 11.6. Text Manipulation and the Text Content
+-	element.innerHTML -> all child html.
+-	element.textContent -> the child text only without html tags.
+### 11.7. Manipulating HTML Element Attributes
+-	[attributes](https://developer.mozilla.org/en-US/docs/Web/API/Element/attributes).
+-	[setAttribute](https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute), [getAttribute](https://developer.mozilla.org/en-US/docs/Web/API/Element/getAttribute), [toggleAttribute](https://developer.mozilla.org/en-US/docs/Web/API/Element/toggleAttribute)
 
