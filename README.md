@@ -739,4 +739,7 @@ function fibonacciGenerator (n) {
 -	Dicee Game project.
 ## Section 13: Advanced Javascript and DOM Manipulation
 -	Drum kit project.
+### 13.1. Adding Event Listeners to a Button
+-	[addEventListener](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener).
+### 13.2. Higher Order Functions and Passing
 
