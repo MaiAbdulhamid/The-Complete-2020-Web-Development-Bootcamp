@@ -829,6 +829,15 @@ $( document ).ready(function() {
 ## Section 15: Boss Level Challenge 2 - The Simon Game
 -	The Simon Game Project.
 
+## Section 16: The Unix Command Line
+### 16.1. Installing the Hyper Terminal
+-	[Installing](https://git-scm.com/downloads).
+### 16.2. Understanding the Command Line. Long Live the Command Line!
+-	Bash-sell -> Bourne again shell.
+-	ls a -> cmd that shows all files including the hidden files.
+### 16.3. Command Line Techniques and Directory Navigation
+-	ls -> stands to list , prints all folders and files in the root directory.
+
 
 
 
