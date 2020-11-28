@@ -741,5 +741,106 @@ function fibonacciGenerator (n) {
 -	Drum kit project.
 ### 13.1. Adding Event Listeners to a Button
 -	[addEventListener](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener).
+
 ### 13.2. Higher Order Functions and Passing
+-	 Higher Order Functions -> are functions that takes other functions as inputs or returns function as an output.
+
+### 13.3. A Deeper Understanding of Javascript Objects
+-	Constructor: A constructor is a function that initializes an object.
+-	Constructor functions -> the name has to be capitalized.
+```
+	// Create constructor
+	function Person(first, last, age, eye) {
+	  this.firstName = first;
+	  this.lastName = last;
+	  this.age = age;
+	  this.eyeColor = eye;
+	}
+	//create objects
+	var myFather = new Person("John", "Doe", 50, "blue");
+	var myMother = new Person("Sally", "Rally", 48, "green");
+```
+
+### 13.4. How to Use Switch Statements in js
+-	switch takes code into different track depending on differnt value.
+### 13.5. Objects, their Methods and the Dot Notaion
+-	Method is a function that associated with an object.
+-	calling methods and ptoperty -> with dot notation.
+```
+      var crash = new Audio("./sounds/crash.mp3") //Create object from Audio constructor
+      crash.play() // Use play function from the Audio constructor
+```
+### 13.6. Using Keyboard Event Listeners to Check for Key Presses
+-	using eventListner keydown.
+### 13.7. Understanding Callbacks and How to Respond to Events
+-	Callback function -> is a function that gets passed in as an input.
+-	It has to wait something to happens.
+-	It triggers the actual event that happens.
+### 13.8. Adding Animation to Websites
+-	Adding class to clicked btn and setTimeout to remove the class
+
+## Section 14: jQuery
+
+### 14.1. What is jQuery?
+-	jQuery is javascript library that someone wrote it to simplify js code and make it easy to use.
+### 14.2. How to Incorporate jQuery into websites
+-	Download jquery file or use cdn link.
+-	include scripts at the end of website or add the code inside ready function to avoid loading js file before loading jquery file.
+```
+$( document ).ready(function() {
+  // Handler for .ready() called.
+});
+```
+### 14.3. How Minification Works to Reduce File Size
+-	Minify file removes spaces, comments and new lines to Reduce File Size.
+-	[Minifier website](https://www.minifier.org/).
+
+### 14.4. Selecting Elements with jQuery
+-	Using $('selector').
+
+### 14.5. Manipulating Styles with jQuery
+-	$('Selector').css('cssProperty', 'value') -> To set the value.
+-	$('Selector').css('cssProperty', 'value') -> To get the value.
+-	$('Selector').addClass('classname1 className2'), $('Selector').removeClass('classname1 className2').
+-	$('Selector').hasClass('className') -> return true or false.
+### 14.6. Manipulating Text with jQuery
+-	$('Selector').text('Text to be added').
+-	$('Selector').html('< htmlTag />').
+### 14.7. Manipulating Attributes with jQuery
+-	$('Selector').attr('attName', 'value') -> To set the attr value.
+-	$('Selector').attr('attName', 'value') -> To get the attr value.
+-	class is also attr.
+### 14.8. Adding Event Listeners with jQuery
+-	$('Selector').eventName(callbackFunction) -> It triggers all element that matches Selector without having to make for loop.
+-	$('Selector').on("eventName", callbackFunction).
+### 14.9. Adding and Removing Elements with jQuery
+-	element.before(element) -> creates element before the target element itself(before the opening tag of the selected element).
+-	element.prepend(element) -> creates element before the content of target element.
+-	element.after(element) -> creates element after the target element itself(after the opening tag of the selected element).
+-	element.apend(element) -> creates element after the content of target element.
+-	element.remove() -> Removes all selected elements.
+
+### 14.10. Website Animations with jQuery
+-	element.hide(), element.show(), element.toggle().
+-	element.fadeOut(), element.fadeIn(), element.fadeToggle().
+-	element.slideUp(), element.slideDown(), element.slideToggle().
+-	element.animate({poperty: value}) -> we can only add css roles that a numeric value.
+
+## Section 15: Boss Level Challenge 2 - The Simon Game
+-	The Simon Game Project.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
