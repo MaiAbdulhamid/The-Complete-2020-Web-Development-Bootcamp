@@ -1,5 +1,6 @@
 # The-Complete-2020-Web-Development-Bootcamp
 
+-	[Course resourses](https://www.appbrewery.co/p/web-development-course-resources/).
 
 ## Section 1: Front-End Web Development
 
@@ -833,10 +834,117 @@ $( document ).ready(function() {
 ### 16.1. Installing the Hyper Terminal
 -	[Installing](https://git-scm.com/downloads).
 ### 16.2. Understanding the Command Line. Long Live the Command Line!
+
+-	kernel -> is core of operating system, the actual program that interfaces the hardware.
+-	shel -> refers to user interface, for you as a human to be able to interact with kernel and in turn with the hardware of the computer.
+-	there is two variants to shell:
+	-	grafical user interface shell -> finder to find and access files is an example.
+	-	command line interface.
 -	Bash-sell -> Bourne again shell.
--	ls a -> cmd that shows all files including the hidden files.
+-	It is a CLI or command line interpretter for the UNIX system.
+-	Using cmd bash-shell is easier and faster to do a lot of common things.
+
+-	with cmd we have full control and more flexibility.
 ### 16.3. Command Line Techniques and Directory Navigation
--	ls -> stands to list , prints all folders and files in the root directory.
+-	Open up your hyper termial.
+-	ls a -> //shows all files including the hidden files.
+-	ls -> stands to list , prints all folders and files in the directory.
+-	~ -> the root folder.
+-	cd /directory -> to navigate forwards to another directory.
+-	cd ../ -> to navigate backwords outside folder.
+-	when typing the first character of folder name and press tab it auto completes the name of directory.
+-	cd ~ -> go to the root directory.
+-	hit the up button to get the histoy of all commands.
+-	ctrl + a -> go to the beginning of line, ctrl + e -> go to the end of line.
+-	ctrl + u -> clear entire line.
+
+### 16.4. Creating, Opening, and Removing Files through the Command Line
+-	**Some command lines:**
+	-	mkdir folderName -> //Creates a directory.
+	-	cd folderName -> //change directory to the new folder created.
+	-	touch fileName.extension -> //creates new file.
+	-	start fileName.extension -> to open the file(open for mac).
+	-	start -a Atom fileName.extension -> to open the file with Atom application for Example(use open for mac).
+	-	rm fileName.extension -> removes the file.
+	-	pwd -> show the current folder location (print working directory).
+	-	rm * -> remove all files.
+	-	rm -r folderName -> remove folder.
+-	[Learn More about hyper terminal](https://www.learnenough.com/command-line-tutorial/basics).
+
+##Section 17: Backend Web Development
+### Backend Web Development Explained
+-	full stack -> front-end + back-end.
+
+## Section 18: Node.js
+### 18.. What is Node.js?
+### 18.. Install Node.js on Mac
+### 18.. Install Node.js on Windows
+### 18.. The Power of the Command Line and How to Use Node
+### 18.. The Node REPL (Read Evaluation Print Loops)
+### 18.. How to Use the Native Node Modules
+### 18.. The NPM Package Manager and Installing External Node Modules
+### 18.. Tip from Angela - Step Up to the Challenge
+
+## Section 19: Express.js with Node.js
+### 19.. What is Express?
+### 19.. Creating Our First Server with Express
+### 19.. Handling Requests and Responses: the GET Request
+### 19.. Nodemon Installation
+### 19.. Understanding and Working with Routes
+### 19.. What We'll Make: A Calculator
+### 19.. Calculator Setup Challenge
+### 19.. Calculator Setup: Challenge Solution
+### 19.. Responding to Requests with HTML Files
+### 19.. Processing Post Requests with Body Parser
+### 19.. BMI Routing Challenge
+### 19.. Solution to the BMI Routing Challenge
+
+## Section 20: APIs - Application Programming Interfaces
+### 20.. Why Do We Need APIs?
+### 20.. API Endpoints, Paths and Parameters.
+### 20.. API Authentication and Postman
+### 20.. What is JSON?
+### 20.. Making GET Requests with the Node HTTPS Module
+### 20.. How to Parse JSON
+### 20.. Using Express to Render a Website with Live API Data
+### 20.. Using Body Parser to Parse POST Requests to the Server
+### 20.. The Mailchimp API - What You'll Make
+### 20.. Setting Up the Sign Up Page
+### 20.. Posting Data to Mailchimp's Servers via their API
+### 20.. Adding Success and Failure Pages
+### 20.. Deploying Your Server with Heroku
+
+## Section 21: Git, Github and Version Control
+### 21.. Introduction to Version Control and Git
+### 21.. Version Control Using Git and the Command Line
+### 21.. GitHub and Remote Repositories
+### 21.. GitHub Private Repos are now Free! ?
+### 21.. Gitignore
+### 21.. Cloning
+### 21.. Branching and Merging
+### 21.. Optional Git Challenge
+### 21.. Forking and Pull Requests
+
+## Section 22: EJS
+### 22.. What We'll Make: A ToDoList
+### 22.. Linter Errors with EJS
+### 22.. Templates? Why Do We Need Templates?
+### 22.. Creating Your First EJS Templates
+### 22.. Running Code Inside the EJS Template
+### 22.. Passing Data from Your Webpage to Your Server
+### 22.. The Concept of Scope in the Context of Javascript
+### 22.. Adding Pre-Made CSS Stylesheets to Your Website
+### 22.. Understanding Templating vs. Layouts
+### 22.. Understanding Node Module Exports: How to Pass Functions and Data between Files
+
+## Section 23: Boss Level Challenge 3 - Blog Website
+
+## Section 24: Databases
+### Databases Explained: SQL vs. NOSQL
+
+
+
+
 
 
 
