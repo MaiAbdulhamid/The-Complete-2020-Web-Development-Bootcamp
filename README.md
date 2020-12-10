@@ -833,6 +833,7 @@ $( document ).ready(function() {
 ## Section 16: The Unix Command Line
 ### 16.1. Installing the Hyper Terminal
 -	[Installing](https://git-scm.com/downloads).
+
 ### 16.2. Understanding the Command Line. Long Live the Command Line!
 
 -	kernel -> is core of operating system, the actual program that interfaces the hardware.
