@@ -88,7 +88,6 @@
 -	href attr is the link destination.
 
 ## Section 3: Intermediate HTML
-
 ### 3.1. HTML Tables
 -	Tables main tag is table, and everything between is the actual content.
 -	To make row use tag tr.
