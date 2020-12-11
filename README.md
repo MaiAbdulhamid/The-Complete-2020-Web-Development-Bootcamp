@@ -878,13 +878,18 @@ $( document ).ready(function() {
 
 ## Section 18: Node.js
 ### 18.. What is Node.js?
-### 18.. Install Node.js on Mac
-### 18.. Install Node.js on Windows
+-	Allows us to create backend using javaScript.
+-	one language to make frontend and backend.
+-	nodejs: allows us to take js out of the browser and it librerates it allowing it to interact directely with the hardware of the computer.
+-	Sowe can make full application like descktop applications like atom with node(on our computer).
+-	we Can also run nodejs on server.
+-	Very fast programming language.
+### 18.. Install Node.js
+-	[node website](https://nodejs.org/en/).
 ### 18.. The Power of the Command Line and How to Use Node
 ### 18.. The Node REPL (Read Evaluation Print Loops)
 ### 18.. How to Use the Native Node Modules
 ### 18.. The NPM Package Manager and Installing External Node Modules
-### 18.. Tip from Angela - Step Up to the Challenge
 
 ## Section 19: Express.js with Node.js
 ### 19.. What is Express?
