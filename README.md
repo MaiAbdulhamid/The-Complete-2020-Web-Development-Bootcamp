@@ -886,8 +886,23 @@ $( document ).ready(function() {
 ### 18.. Install Node.js
 -	[node website](https://nodejs.org/en/).
 ### 18.. The Power of the Command Line and How to Use Node
+- $ pwd -> //print working directory
+- $ cd -> //change directrory
+- $ls -> //list of directroies and files
+- $mkdir folderName -> //make directrory
+- $touch fileName -> //make file
+- $node file.js -> //usenode to run this file
 ### 18.. The Node REPL (Read Evaluation Print Loops)
+- Allows you to execute code in bite sized chunks(like console).
+- By installing node we install it's REPL.
+- $node -> //To run node REPL.
+- crtl + c -> get out from any process.
+- $ .exit -> // to exist the REPL(or twice crtl + c ).
+- $ clear -> //clear commands
 ### 18.. How to Use the Native Node Modules
+- Libraries of code that the node team wrote.
+- In order to use module we have first to require it.
+- [Native moduls and the documentation of how to use it](https://nodejs.org/api/).
 ### 18.. The NPM Package Manager and Installing External Node Modules
 
 ## Section 19: Express.js with Node.js
