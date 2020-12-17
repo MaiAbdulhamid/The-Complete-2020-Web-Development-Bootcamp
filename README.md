@@ -876,54 +876,197 @@ $( document ).ready(function() {
 -	full stack -> front-end + back-end.
 
 ## Section 18: Node.js
-### 18.. What is Node.js?
+### 18.1. What is Node.js?
 -	Allows us to create backend using javaScript.
 -	one language to make frontend and backend.
 -	nodejs: allows us to take js out of the browser and it librerates it allowing it to interact directely with the hardware of the computer.
 -	Sowe can make full application like descktop applications like atom with node(on our computer).
 -	we Can also run nodejs on server.
 -	Very fast programming language.
-### 18.. Install Node.js
+### 18.2. Install Node.js
 -	[node website](https://nodejs.org/en/).
-### 18.. The Power of the Command Line and How to Use Node
+### 18.3. The Power of the Command Line and How to Use Node
 - $ pwd -> //print working directory
 - $ cd -> //change directrory
 - $ls -> //list of directroies and files
 - $mkdir folderName -> //make directrory
 - $touch fileName -> //make file
 - $node file.js -> //usenode to run this file
-### 18.. The Node REPL (Read Evaluation Print Loops)
+### 18.4. The Node REPL (Read Evaluation Print Loops)
 - Allows you to execute code in bite sized chunks(like console).
 - By installing node we install it's REPL.
 - $node -> //To run node REPL.
 - crtl + c -> get out from any process.
 - $ .exit -> // to exist the REPL(or twice crtl + c ).
 - $ clear -> //clear commands
-### 18.. How to Use the Native Node Modules
+### 18.5. How to Use the Native Node Modules
 - Libraries of code that the node team wrote.
+- var creates variable.
+- const -> can't change the value.
+- [file system module](https://nodejs.org/api/fs.html).
 - In order to use module we have first to require it.
+```
+const fs = require('fs');
+```
+- Now we can use it in our project.
+```
+fs.copyFileSync('source.txt', 'destination.txt'); //copy source file into destination
+```
 - [Native moduls and the documentation of how to use it](https://nodejs.org/api/).
-### 18.. The NPM Package Manager and Installing External Node Modules
-
+### 18.6. The NPM Package Manager and Installing External Node Modules
+- NPM -> Node Package Manager for External modules.
+- Bits of reusable code that somebody wrote, and usine npm we can incorporate those packages into your project.
+- When we install node we already install NPM.
+- $npm init -y -> intailize NPM package.json file into the project.
+- Example of npm package 
+  - [superheroes ](https://www.npmjs.com/package/superheroes).
+  - [supervillains](https://www.npmjs.com/package/supervillains).
+  
 ## Section 19: Express.js with Node.js
-### 19.. What is Express?
-### 19.. Creating Our First Server with Express
-### 19.. Handling Requests and Responses: the GET Request
-### 19.. Nodemon Installation
-### 19.. Understanding and Working with Routes
-### 19.. What We'll Make: A Calculator
-### 19.. Calculator Setup Challenge
-### 19.. Calculator Setup: Challenge Solution
-### 19.. Responding to Requests with HTML Files
-### 19.. Processing Post Requests with Body Parser
-### 19.. BMI Routing Challenge
-### 19.. Solution to the BMI Routing Challenge
+### 19.1. What is Express?
+- It's a Node framework.
+- Built to make you write less repeatitive code.
+- [Express Documentation](https://expressjs.com/).
+### 19.2. Creating Our First Server with Express
+- open hyper terminal and Editor.
+1. Create new directory for the project $mkdir directory.
+2. cd into directory $ cd directory
+3. inside directrory make new file to start server from it $ touch index.js
+4. initialize npm $ npm init
+5. open project inside atom $ atom . .
+6. install express $ npm install express.
+7. require express:
+```
+const express = require('express')
+const app = express()
 
+app.listen(3000, () => {
+  console.log(`App listening at http://localhost:3000`)
+})
+```
+8. run server $ node index.js
+### 19.. Handling Requests and Responses: the GET Request
+- app.get -> define what happens ewhen someone makes a get request to the route on the first parameter.
+- req -> the request that sent to the server.
+- res -> the response that server send.
+```
+//Send the browser some information to display
+app.get('/', (req, res) => {
+  res.send('Hello World!') //send text or html <h2>Hello World!</h2>
+})
+```
+### 19.3. Nodemon Installation
+- a npm package that auto start our servers.
+- Once you install it, it will be available across your all projects.
+- [nodemon](https://github.com/remy/nodemon).
+### 19.4. Understanding and Working with Routes
+- You can set up as many routes as you wish.
+```
+app.get('/contact', (req, res) => {
+  res.send('Contact page')
+})
+app.get('/about', (req, res) => {
+  res.send('About page')
+})
+```
+### 19.5. Calculator Setup Challenge
+- Make a new folder called Calculator on your Desktop
+- Change Directory to this new folder
+- Inside the Calculator folder, create a new file called calculator.js
+- Set up a new NPM package
+- Open the project folder in Atom 
+- Using NPM install the express module
+- Require express in your calculator.js
+- Setup express
+- Create a root route get method with app.get()
+- Send the words Hello World from the root route as the response
+- Spin up our server on port 3000 with app.listen
+- Run server with nodemon
+### 19.6. Calculator Setup: Challenge Solution
+- $ mkdir Calculator
+- $ cd Calculator
+- $ touch calculator.js
+- $ npm init
+- $ atom .
+- $ npm install express
+``` 
+Starter Code
+```
+- $ nodemon calculator.js
+### 19.7. Responding to Requests with HTML Files
+- make index.html file
+```
+app.get('/', function(req, res){
+  res.sendFile(__dirname + '/index.html')
+})
+
+```
+### 19.8. Processing Post Requests with Body Parser
+- Submit button sends the data into the form into the location(route) that at action attribute.
+- [List of HTTP status codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes).
+- In order to recieve post data from form we need to install package body-parser and require it, then we tell our app to use it.
+```
+quire('express');
+const bodyparser = require('body-parser')
+
+const app = express()
+app.use(bodyparser.urlencoded({extended : true}))
+
+app.get('/', function(req, res){
+  res.sendFile(__dirname + '/index.html')
+})
+
+app.post('/', function(req, res){
+  console.log(req.body);
+})
+```
+- It parses the req into text, so to convert to numder use Number(req.body.num).
+### 19.9. BMI Routing Challenge
+1. Create a new file called bmiCalculator.html inside the Calculator folder from the last challenge 
+2. Add the HTML boilerplate and set the page title to BMI Calculator
+3. Add an HTML form, this form will make a post request to our server at the route /bmicalculator. The form will have 2 inputs, weight and height with placeholder text that tell the user what they should type into which text box. 
+4. Add a button which says “Caculate BMI”
+5. Add the get and post methods for the /bmicalculator route into the same server.js file we've been using
+6. Use sendFile() to send the bmiCalculator.html page as a response inside the get method.
+6. Add an h1 that says BMI Calculator
+7. Inside server.js , create 2 variables, one for weight and one for height. 
+8. Use the BMI calculator code you wrote previously, or write some new code to calculate and send back the result as text. It should read something like "Your BMI is n" where n is equal to the calculated BMI based on their weight and height inputs.
+### 19.10. Solution to the BMI Routing Challenge
+```
+app.get('/bmicalculator', function(req, res){
+  res.sendFile(__dirname + '/bmiCalculator.html')
+})
+app.post('/bmicalculator', function(req, res){
+  var weight = parseFloat(req.body.weight);
+  var height = parseFloat(req.body.height);
+  var bmi = weight / (height * height)
+
+  res.send("Your BMI is "+ bmi )
+})
+```
 ## Section 20: APIs - Application Programming Interfaces
-### 20.. Why Do We Need APIs?
-### 20.. API Endpoints, Paths and Parameters.
-### 20.. API Authentication and Postman
-### 20.. What is JSON?
+### 20.1. Why Do We Need APIs?
+- Application Programming Interfaces: is a set of command, functions, protocol and objects that prorammers can use to create software or interact with external system.
+### 20.2. API Endpoints, Paths and Parameters.
+- Endpoint: Every API that interacts with external server has endpoint "The url of the get request".
+- Path: the word after the last (/) in the endpoint url.
+- Parameters: the words at the end of url after (?) in the endpoint url
+  - consists of ?key=value, the first parameter after (?) and the rest of parameters sfter (&).
+  - The order of parameters dosen't matter.
+- [kanye API](https://kanye.rest/).
+- [Joke API](https://sv443.net/jokeapi/v2/).
+### 20.3. API Authentication and Postman
+- Authentication: Every time you make a request through the API, they have to be able to identify you as a developer and they have to keep track how often you use this API to get data, then charge you or limit you accordingly.
+- [weather API](https://openweathermap.org/api).
+- sign up and sign in.
+- API key and create a key.
+- when we testing APIs we use [Postman](https://www.postman.com/downloads/).
+### 20.4. What is JSON?
+- Stands for Javascript Object Notation.
+- It's not the only data that can receive data from APIs.
+- [JSON vs XML](https://www.w3schools.com/js/js_json_xml.asp).
+- [chrome extention JSON Viewer](https://chrome.google.com/webstore/detail/json-viewer-pro/eifflpmocdbdmepbjaopkkhbfmdgijcc).
+- [The Rise and Rise of JSON](https://twobithistory.org/2017/09/21/the-rise-and-rise-of-json.html).
 ### 20.. Making GET Requests with the Node HTTPS Module
 ### 20.. How to Parse JSON
 ### 20.. Using Express to Render a Website with Live API Data
