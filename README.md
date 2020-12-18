@@ -1067,26 +1067,225 @@ app.post('/bmicalculator', function(req, res){
 - [JSON vs XML](https://www.w3schools.com/js/js_json_xml.asp).
 - [chrome extention JSON Viewer](https://chrome.google.com/webstore/detail/json-viewer-pro/eifflpmocdbdmepbjaopkkhbfmdgijcc).
 - [The Rise and Rise of JSON](https://twobithistory.org/2017/09/21/the-rise-and-rise-of-json.html).
-### 20.. Making GET Requests with the Node HTTPS Module
-### 20.. How to Parse JSON
-### 20.. Using Express to Render a Website with Live API Data
-### 20.. Using Body Parser to Parse POST Requests to the Server
-### 20.. The Mailchimp API - What You'll Make
-### 20.. Setting Up the Sign Up Page
-### 20.. Posting Data to Mailchimp's Servers via their API
-### 20.. Adding Success and Failure Pages
-### 20.. Deploying Your Server with Heroku
+### 20.5. Making GET Requests with the Node HTTPS Module
+- [Ways To make get request](https://www.twilio.com/blog/2017/08/http-requests-in-node-js.html).
+- Use native httpRequest Module.
+- Require it but you don't need to insall it.
+- [HTTPS](https://nodejs.org/api/https.html#https_https_get_url_options_callback).
+```
+app.get('/', function(req, res){
+  //url parts
+  const query = 'london';
+  const  apiKey = '3b712ebc109bc87b541a0abaa0f64b85';
+  const unit = 'metric';
+  //request from our Server to external server 'API'
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${apiKey}&units=${unit}`;
+  https.get(url, function(response){
+    console.log((response));
+  })
+
+})
+```
+### 20.6. How to Parse JSON
+- [All response.statusCode](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status).
+- [statusCode for fun :)](https://httpstatusdogs.com/).
+- JSON.parse(jsonData) -> convert data to Object.
+- JSON.stringfy(objectData) -> convert Object to Json.
+```
+app.get('/', function(req, res){
+  https.get(url, function(response){
+    //response from external Server to our server
+    response.on('data', function(data){
+      console.log(data);
+      const weatherData = JSON.parse(data);
+      const temp = weatherData.main.temp;
+      const weatherDescription = weatherData.weather[0].description
+    })
+  })
+})
+```
+- [Hex to Text](https://cryptii.com/pipes/hex-to-text).
+### 20.7. Using Express to Render a Website with Live API Data
+- Only one res.send() is allowed in the same request.
+```
+//request from client to our server
+app.get('/', function(req, res){
+  //request from our Server to external server 'API'
+  https.get(url, function(response){
+    //response from external Server to our server with data
+    response.on('data', function(data){
+      const icon = weatherData.weather[0].icon;
+      const iconUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+      console.log(weatherData + temp + weatherDescription + icon + iconUrl);
+
+      //response from our server to client server
+      res.write(`<p>The weather description is ${weatherDescription}</p>`)
+      res.write(`<h1>The Tempereture in ${query} is ${temp} in Celcuis Degrees. </h1>`)
+      res.write(`<img src="${iconUrl}" />`)
+      res.send()
+    })
+  })
+})
+```
+### 20.8. Using Body Parser to Parse POST Requests to the Server
+- create form to send city name from input.
+- recieve that input data by body-parser module.
+```
+app.get('/', function(req, res){
+  //url parts
+  const query = req.body.cityName;
+})
+```
+### 20.9. The Mailchimp API - What You'll Make
+- Make Real website on web.
+### 20.10. Setting Up the Sign Up Page
+- Setting new project using node and express.
+- $touch file1 file2 file3-> we can write more than one file with a single space between them.
+- Use bootstrap to make styles and signup.html page.
+- In order to make our server serve css files and imgages folders we need function called static('ourStaticFolder').
+```
+const bodyParser = require('body-parser')
+const app = express() //make new instance from express
+app.use(express.static("public"))
+app.use(bodyParser.urlencoded({extends: true}))
+app.get('/', function(req, res){
+  res.sendFile(__dirname + '/signup.html')
+});
+
+app.post('/', function(req, res){
+
+  const fName = req.body.fName;
+  const lName = req.body.lName;
+  const email = req.body.email;
+})
+```
+
+- [Mailchimp API Reference](https://mailchimp.com/developer/api/marketing/).
+
+### 20.11. Posting Data to Mailchimp's Servers via their API
+- [Mailchimp Getting Started](https://mailchimp.com/developer/guides/marketing-api-conventions/).
+- login to Mailchimp then create API key.
+- [Mailchimp List Documentation](https://mailchimp.com/developer/api/marketing/lists/#post_/lists/-list_id-).
+- Use list id (audiance id) to help Mailchimp to identify the list that you want to put your subscribers on it.
+- To send data using https use https.request() and make it into a variable to send data from the form.
+- url: 'https://<dc>.api.mailchimp.com/3.0/' -> the endpoint and path
+- auth: 'anystring:<YOUR_API_KEY>' -> in https options there is auth.
+```
+app.post('/', function(req, res){
+  const data = {
+    members : [
+      {
+        //the value is from the form
+        email_address : email,
+        status: "subscribed",
+        merge_fields: {
+                FNAME: fName,
+                LNAME: lName
+        }
+      }
+    ]
+  }
+  const jsonData = JSON.stringify(data);
+
+  const listId   = "listId"
+  const url      = `https://<dc>.api.mailchimp.com/3.0/lists/${listId}`
+  const options  = {
+    method: 'POST',
+    auth: 'anystring:<YOUR_API_KEY>'
+  }
+  const request = https.request(url, options, function(response){
+
+    response.on('data', function(data){
+      console.log(JSON.parse(data));
+    })
+
+  }); //data recieved from external API
+
+  //data which is sent to an external API from the form
+  request.write(jsonData)
+  request.end()
+});
+```
+### 20.12. Adding Success and Failure Pages
+```
+const request = https.request(url, options, function(response){
+
+    if(response.statusCode === 200){
+      res.sendFile(__dirname + '/success.html')
+    }else{
+      res.sendFile(__dirname + '/failure.html')
+    }
+
+  });
+//Try Again
+app.post('/failure', function(req, res){
+  res.redirect('/')
+})
+```
+### 20.13. Deploying Your Server with Heroku
+- [Heroku](https://www.heroku.com/).
+- [Heroku Node.js Documentation](https://devcenter.heroku.com/articles/getting-started-with-nodejs).
+- To make app work locally and on heroku port.
+```
+app.listen(process.env.PORT || 3000, function(req, res){
+  console.log('Running at 3000 server.');
+})
+```
+- Create a Procfile and declare what command should be executed to start your app inside it:
+```
+web: node app.js
+```
+- Use git:
+1. $ git init
+2. $ git add .
+3. $ git commit -m "Message"
+4. $ heroku create
+5. $ git push heroku master
+- To update : use 1, 2, 3, 5 commands.
+- [Sign up to My Newsletter (if you like) :)](https://eerie-goosebumps-55934.herokuapp.com/).
 
 ## Section 21: Git, Github and Version Control
-### 21.. Introduction to Version Control and Git
-### 21.. Version Control Using Git and the Command Line
-### 21.. GitHub and Remote Repositories
-### 21.. GitHub Private Repos are now Free! ?
-### 21.. Gitignore
+### 21.1. Introduction to Version Control and Git
+- Version Control: make you can Roll back to a previous versions of the project.
+### 21.2. Version Control Using Git and the Command Line
+- [Download Git for Windows and Mac](https://git-scm.com/downloads).
+- $ git init
+- $ git status //To see what currently in staging area.
+- $ git add fileName // add file to the staging area
+- $ git commit -m "Message" // Keep track of what changes you made
+- $ git log // To see what commits you made
+- Working directroy : is the folder where you inialize your Git.
+- Staging area: intermediate area that the changes go there when typing $ git add command.
+- Local directrory: changes go there after $ git commit command(.git file inside the project folder).
+- $ git diff fileName // To see the difference between current file and the last versions.
+- $ git checkout fileName // roll back to the last version
+
+### 21.3. GitHub and Remote Repositories
+- Make project repository on github.
+- $ git remote add origin repositoryUrl
+- $ git push -u origin master
+- Master branch: is the main branch of commits.
+- Remote directory: which host our code and host all the changes that made after $ git push command(Github Repository).
+### 21.4. Gitignore
+- $ git rm --cached -r . // remove all files
+- [Gitignore and the absence of NPM Modules on GitHub Projects](https://github.com/contentful/the-example-app.nodejs).
 ### 21.. Cloning
-### 21.. Branching and Merging
-### 21.. Optional Git Challenge
-### 21.. Forking and Pull Requests
+- Is a way to pull down all of the commits and all of the versions of a particular remote repository and store the files inside your working directory.
+- $ git clone repositoryUrl
+### 21.5. Branching and Merging
+- $ git branch branchName // Creates new branch
+- $ git branch // check out what branches you have and show where you are
+- $ git checkout branchName // To switch to this branch
+- To merge go back to master branch: $ git branch master
+- Then merge: $ git merge branchName.
+- it will open vim to maje merge message(write :q! to exit vim)
+- $ git push -u origin master
+### 21.6. Optional Git Challenge
+- [Git Challenge](https://learngitbranching.js.org/).
+### 21.7. Forking and Pull Requests
+- forking: make a copy of the project from remote repository
+- pull: make a request to push changes into the main project remote repository.
+- if the pull request is approved, changes will be merged to the main project.
 
 ## Section 22: EJS
 ### 22.. What We'll Make: A ToDoList
