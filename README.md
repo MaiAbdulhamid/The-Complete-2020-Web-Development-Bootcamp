@@ -1,22 +1,22 @@
 # The-Complete-2020-Web-Development-Bootcamp
 
 -	[Course resourses](https://www.appbrewery.co/p/web-development-course-resources/).
+<details>
+  <summary>## Section 1: Front-End Web Development</summary>
+  ### 1.1. How Does the Internet Actually Work?
+  -	**Internet** is a long piece of wire, And the wire connect different computers to each other. It allows computers to transfer data through this giant wire
+  -	A server is a computer that provides files and data to other computers, it allows access 24/7.
+  -	A client is a computer that any user is used to access the internet.
+  -	When browser request a website, the request sent to **ISP** (Internet server provider: The company we pay for internet service) then it search at DNS that contains websites IP addresses. Once the DNS finds the IP address it sends it back to the browser vis ISP. Then the browser sends a direct request through ISP and this message will be delivered via Internet Backbone to the server that is located that IP address. On that server there is all files that needed to view the website home page. The server sends this files back to the client through the internet backbone and client get to see website in the browser. All of that happens in milliseconds.
 
-## Section 1: Front-End Web Development
+  ### 1.2. How Do Websites Actually Work?
+  -	To access web page we need browser (allows to look up ip address and recives data from server).
+  -	Data from server contains html, css, and js files.
 
-### 1.1. How Does the Internet Actually Work?
--	**Internet** is a long piece of wire, And the wire connect different computers to each other. It allows computers to transfer data through this giant wire
--	A server is a computer that provides files and data to other computers, it allows access 24/7.
--	A client is a computer that any user is used to access the internet.
--	When browser request a website, the request sent to **ISP** (Internet server provider: The company we pay for internet service) then it search at DNS that contains websites IP addresses. Once the DNS finds the IP address it sends it back to the browser vis ISP. Then the browser sends a direct request through ISP and this message will be delivered via Internet Backbone to the server that is located that IP address. On that server there is all files that needed to view the website home page. The server sends this files back to the client through the internet backbone and client get to see website in the browser. All of that happens in milliseconds.
-
-### 1.2. How Do Websites Actually Work?
--	To access web page we need browser (allows to look up ip address and recives data from server).
--	Data from server contains html, css, and js files.
-
-### 1.3. To get started
--	Need Browser (chrome recommended)
--	Text Edittor(Atom, vs code)
+  ### 1.3. To get started
+  -	Need Browser (chrome recommended)
+  -	Text Edittor(Atom, vs code)
+</details>
 
 ## Section 2: Introduction to HTML
 
