@@ -1,8 +1,8 @@
 # The-Complete-2020-Web-Development-Bootcamp
 
 -	[Course resourses](https://www.appbrewery.co/p/web-development-course-resources/).
-<details>
 ## Section 1:
+<details>
   <summary>
 	   Front-End Web Development
   </summary>
