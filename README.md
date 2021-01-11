@@ -2,7 +2,9 @@
 
 -	[Course resourses](https://www.appbrewery.co/p/web-development-course-resources/).
 <details>
-  <summary>## Section 1: Front-End Web Development</summary>
+  <summary>
+	  ## Section 1: Front-End Web Development
+  </summary>
   ### 1.1. How Does the Internet Actually Work?
   -	**Internet** is a long piece of wire, And the wire connect different computers to each other. It allows computers to transfer data through this giant wire
   -	A server is a computer that provides files and data to other computers, it allows access 24/7.
