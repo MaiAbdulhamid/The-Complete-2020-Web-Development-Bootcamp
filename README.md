@@ -1360,10 +1360,10 @@
   ### 21.4. Gitignore
   - $ git rm --cached -r . // remove all files
   - [Gitignore and the absence of NPM Modules on GitHub Projects](https://github.com/contentful/the-example-app.nodejs).
-  ### 21.. Cloning
+  ### 21.5. Cloning
   - Is a way to pull down all of the commits and all of the versions of a particular remote repository and store the files inside your working directory.
   - $ git clone repositoryUrl
-  ### 21.5. Branching and Merging
+  ### 21.6. Branching and Merging
   - $ git branch branchName // Creates new branch
   - $ git branch // check out what branches you have and show where you are
   - $ git checkout branchName // To switch to this branch
@@ -1371,9 +1371,9 @@
   - Then merge: $ git merge branchName.
   - it will open vim to maje merge message(write :q! to exit vim)
   - $ git push -u origin master
-  ### 21.6. Optional Git Challenge
+  ### 21.7. Optional Git Challenge
   - [Git Challenge](https://learngitbranching.js.org/).
-  ### 21.7. Forking and Pull Requests
+  ### 21.8. Forking and Pull Requests
   - forking: make a copy of the project from remote repository
   - pull: make a request to push changes into the main project remote repository.
   - if the pull request is approved, changes will be merged to the main project.
