@@ -33,11 +33,11 @@ app.post('/', function(req, res){
   }
   const jsonData = JSON.stringify(data);
 
-  const listId   = "562e3edc8c"
+  const listId   = "listId"
   const url      = `https://us2.api.mailchimp.com/3.0/lists/${listId}`
   const options  = {
     method: 'POST',
-    auth: 'Mai:edbda9665b9b35bb825c4b1d2e09791c-us2'
+    auth: 'anyString:APIKey'
   }
   const request = https.request(url, options, function(response){
 
@@ -47,9 +47,6 @@ app.post('/', function(req, res){
       res.sendFile(__dirname + '/failure.html')
     }
 
-    // response.on('data', function(data){
-    //   console.log(JSON.parse(data));
-    // })
   }); //data recieved from external API
 
   //data entered an external API
@@ -65,11 +62,3 @@ app.post('/failure', function(req, res){
 app.listen(process.env.PORT || 3000, function(req, res){
   console.log('Running at 3000 server.');
 })
-/*
-API key
-
-edbda9665b9b35bb825c4b1d2e09791c-us2
-
-List ID:
-562e3edc8c
-*/
