@@ -1,4 +1,4 @@
-/node_modules
+projects/7. weatherProject/node_modules
 npm-debug.log
 .DS_Store
 /*.env
