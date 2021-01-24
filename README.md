@@ -1378,31 +1378,40 @@
   - pull: make a request to push changes into the main project remote repository.
   - if the pull request is approved, changes will be merged to the main project.
 
-  
 </details>
 
 ## Section 22:
 <details>
-  <summary>EJS</summary>
-  
-  ### 22.. What We'll Make: A ToDoList
-  ### 22.. Linter Errors with EJS
-  ### 22.. Templates? Why Do We Need Templates?
-  ### 22.. Creating Your First EJS Templates
-  ### 22.. Running Code Inside the EJS Template
-  ### 22.. Passing Data from Your Webpage to Your Server
-  ### 22.. The Concept of Scope in the Context of Javascript
-  ### 22.. Adding Pre-Made CSS Stylesheets to Your Website
-  ### 22.. Understanding Templating vs. Layouts
-  ### 22.. Understanding Node Module Exports: How to Pass Functions and Data between Files
-  
+	<summary>EJS</summary>
+	
+	### 22.1. Templates? Why Do We Need Templates?
+	- prepare the app
+	### 22.. Creating Your First EJS Templates
+	### 22.. Running Code Inside the EJS Template
+	### 22.. Passing Data from Your Webpage to Your Server
+	### 22.. The Concept of Scope in the Context of Javascript
+	### 22.. Adding Pre-Made CSS Stylesheets to Your Website
+	### 22.. Understanding Templating vs. Layouts
+	### 22.. Understanding Node Module Exports: How to Pass Functions and Data between Files
+	
 </details>
 
 
-## Section 23: Boss Level Challenge 3 - Blog Website
+## Section 23:
+<details>
+  <summary>Boss Level Challenge 3 - Blog Website</summary>
+  
+  
+</details>
 
-## Section 24: Databases
+## Section 24:
+<details>
+	<summary>Databases</summary>
+
 ### Databases Explained: SQL vs. NOSQL
+  
+</details>
+
 
 
 
