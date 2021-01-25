@@ -148,24 +148,3 @@ if (port == null || port == "") {
 app.listen(port, function(req, res) {
   console.log("Herocu server has started.");
 })
-
-/*
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-*/
