@@ -1438,12 +1438,8 @@
 </details>
 
 
-## Section 23:
-<details>
-  <summary>Boss Level Challenge 3 - Blog Website</summary>
-  
-  
-</details>
+## Section 23: Boss Level Challenge 3 - Blog Website
+-	ejs-challenge to make blog website.
 
 ## Section 24:
 <details>
