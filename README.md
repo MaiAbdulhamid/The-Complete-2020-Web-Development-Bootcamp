@@ -1377,23 +1377,64 @@
   - forking: make a copy of the project from remote repository
   - pull: make a request to push changes into the main project remote repository.
   - if the pull request is approved, changes will be merged to the main project.
-
+	
 </details>
+
+
 
 ## Section 22:
 <details>
 	<summary>EJS</summary>
 	
-	### 22.1. Templates? Why Do We Need Templates?
-	- prepare the app
-	### 22.. Creating Your First EJS Templates
-	### 22.. Running Code Inside the EJS Template
-	### 22.. Passing Data from Your Webpage to Your Server
-	### 22.. The Concept of Scope in the Context of Javascript
-	### 22.. Adding Pre-Made CSS Stylesheets to Your Website
-	### 22.. Understanding Templating vs. Layouts
-	### 22.. Understanding Node Module Exports: How to Pass Functions and Data between Files
-	
+### 22.1. What We'll Make: A ToDoList
+- Make todolist-v1.
+### 22.2. Templates? Why Do We Need Templates?
+- we need templates to can change certain part in html depends on our logic.
+### 22.3. Creating Your First EJS Templates
+- [EJS documentation](http://ejs.co/)
+- $ npm i ejs
+- use it with express -> `app.use('view engine', 'ejs')`
+- make views folder and put html files inside it(use .ejs instead of .html).
+- use `res.render('page', {key: value})` instead of `res.send('page')`.
+- inside page.ejs file we use the `<%= key %>` to get the value.
+### 22.4. Running Code Inside the EJS Template
+- scriptlet tag `<% %>` -> for control flow inside pages, it must be around anything that is not html line by line(for each line of js).
+```
+<% if(condition){ %>
+//Do something
+//html code
+<% } else { %>
+//Do something else
+<% } %>
+```
+### 22.5. Passing Data from Your Webpage to Your Server
+- format date -> `toLocaleDateString('region', options)`.
+- To send data from form to page:
+	- make `app.post()` to save data from the form into global varible or push it into global array and redirect to the page route.
+	- recive the variable into page `app.get()` and send it inside render object.
+- To render array of items, we loop throw it inside ejs page.
+### 22.6. The Concept of Scope in the Context of Javascript
+- **local variables** -> the scope of local variables is local to where they were declared.
+- **Global variables** -> Global to all scopes inside the code.
+- var -> inside for loop, if, and eny block which is not a function, variable which is declared with var keyword is accessable outside it(Global).
+- let, const -> inside for loop, if, and eny block which is not a function, are local.
+- const -> value can't be changed.
+- var -> inside for loop, if, is global variable.
+- var, let, const -> outside a function they all are global variables.
+- var, let, const -> inside a function they all are local variables.
+### 22.7. Adding Pre-Made CSS Stylesheets to Your Website
+-	In order to access the css file for our website, we have to tell express explicitly to serve up the css files, and we need to tell it the location our file and tell it to use it.
+- create public folder as a static resource and add `app.use(express.static('public'))`.
+- public folder contains css, images files.
+### 22.8. Understanding Templating vs. Layouts
+- make `/work` directory to use the same homepage layout with different directroies.
+- change `value` attribute of the form button to the page title, to handle submit event.
+- make header.ejs, footer.ejs and include it into pages `<%- include('header') -%>`.
+### 22.9. Understanding Node Module Exports: How to Pass Functions and Data between Files
+- [Export Module in Node.js](https://www.tutorialsteacher.com/nodejs/nodejs-module-exports).
+- `module.exports` is equal to `exports`.
+- [const keyword](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)
+
 </details>
 
 
