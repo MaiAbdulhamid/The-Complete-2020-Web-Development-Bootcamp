@@ -1439,7 +1439,7 @@
 
 
 ## Section 23: Boss Level Challenge 3 - Blog Website
--	ejs-challenge to make blog website.
+-	Project ejs-challenge.
 
 ## Section 24:
 <details>
