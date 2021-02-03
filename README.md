@@ -1446,10 +1446,172 @@
 	<summary>Databases</summary>
 
 ### Databases Explained: SQL vs. NOSQL
-  
+- We need databases to store the data.
+-	SQL databases: Stands for Structured Query language.
+-	NOSQL databases: Stands for Not Only Structured Query language.
+- Depending on the structure of your data you will want to choose a SQL or a NOSQL database.
+- If you need to store data such as orders, customer details, products thing that have lots of relationships between each other, then you might be better to choose SQL such is MySQL.
+- If you have a website where you have something that's more of a one to many kind of relationships, this much easier to store data using NOSQL such as MongoDB.
+<img src="https://raw.githubusercontent.com/MaiAbdulhamid/The-Complete-2020-Web-Development-Bootcamp/main/images/DB.png" />
+
+</details>
+
+## Section 25:
+<details>
+	<summary>SQL</summary>
+
+### 25.1. SQL Commands: CREATE Table and INSERT Data
+- Every database doing CRUD operations (Create, Read, Update, Delete).
+- [w3schools](https://www.w3schools.com/sql/)
+- [DB Edittor](https://sqliteonline.com/#fiddle-5bbdbaef7288bo2ajn2wly03)
+- To Create new DB Table (Create):
+```
+CREATE TABLE Products (
+    ID int NOT NULL,
+    name varchar(255) NOT NULL,
+    price int,
+    PRIMARY KEY (ID)
+);
+```
+-	The PRIMARY KEY constraint uniquely identifies each record in a table.
+-	To insert into table:
+```
+INSERT INTO Products
+VALUES (1, "pencil", 10);
+```
+### 25.2. SQL Commands: READ, SELECT, and WHERE
+-	To Read from DB table(Read):
+```
+SELECT * FROM Products
+WHERE id='1';
+```
+- The `*` Means everthing inside the table.
+-	`WHERE` Followed by the condition.
+-	`=` Operator with `WHERE`, There is many other operators such as `>, <, >=, ...etc`.
+
+### 25.3. Updating Single Values and Adding Columns in SQL
+-	To Update the table record:
+```
+UPDATE Products
+SET name = "pen", price = 20
+WHERE id=1;
+```
+-	Without `WHERE` statement, it will update every record.
+- To update the table columns:
+```
+ALTER TABLE Products
+ADD stock INT;
+```
+### 25.4. SQL Commands: DELETE
+-	To Delete:
+```
+DELETE FROM Products WHERE id=1;
+```
+### 25.5. Understanding SQL Relationships, Foreign Keys and Inner Joins
+- A FOREIGN KEY is a key used to link two tables together.
+```
+CREATE TABLE Orders (
+    orderID INT NOT NULL,
+    orderNumber INT NOT NULL,
+    customerID INT,
+		productID INT,
+    PRIMARY KEY (OrderID),
+    FOREIGN KEY (customerID) REFERENCES customers(id)
+);
+```
+-	To join tables:
+```
+SELECT Orders.OrderID, Customers.first_name, Customers.last_name
+FROM Orders
+INNER JOIN Customers ON Orders.CustomerID = Customers.id;
+```
+-	[INNER JOIN ](https://www.w3schools.com/sql/sql_join_inner.asp)
+
+</details>
+
+## Section 26:
+<details>
+	<summary>MongoDB</summary>
+
+### 26.1. Installing MongoDB on Windows
+-	Go to [mongodb](https://www.mongodb.com/try/download/enterprise) to dowload it.
+-	[Install MongoDB](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/)
+### 26.2. MongoDB CRUD Operations in the Shell: Create
+-	`$ mongod` -> To start mongo DB server.
+- `$ mongo` -> To start mongo shell.
+- In the shell -> `$ help`: shows list of help cmds.
+- `$ show dbs` -> shows all existed dbs.
+- `$ use shop` -> To create new db called shop.
+- New db `shop` to be listed inside dbs, it must have some data.
+- `$ db` -> To know what db you currently worked in.
+-	[MongoDB Docs on CRUD operations](https://docs.mongodb.com/manual/crud/).
+- `$ db.propducts.insertOne({_id:1, name:"pen", price: 10})` -> if that `propducts` collection doesn't exist in the db, then it will create that collection.
+- The collections in mongoDB is similler to tables in the SQL.
+- `$ show collections` -> show all collections in the current db.
+### 26.3. MongoDB CRUD Operations in the Shell: Reading & Queries
+-	`$ db.propducts.find()` -> To Read all documents that is inside `propducts` collection.
+- `$ db.propducts.find({_id: 1})` -> find the document which has id equal to `1`.
+- `$ db.propducts.find({_id: {$gt: 1})` -> find all the documents which has id greater than `1`.
+- `$ db.propducts.find({_id: 1}, {name: 1, _id:0})` -> find the document which has id equal to `1`, and give only the `name`.
+- The second parameter in find method specify which feild to return.
+### 26.4. MongoDB CRUD Operations in the Shell: Update
+-	 `$ db.propducts.updateOne({_id: 1}, { $set: { stock: 12 })` -> update id `1`, add `stock` feild.
+### 26.. MongoDB CRUD Operations in the Shell: Delete
+- `$ db.propducts.deleteOne({_id: 2})` -> delete record `2`.
+### 26.5. Relationships in MongoDB
+- One to many relationship:
+
+```
+$ db.propducts.insertOne(
+	_id: 3,
+	name: "rubber",
+	stock: 20,
+	reviews: [
+		{
+			auther: "Mai",
+			rating: 5,
+			review: "Best Rubber!"
+		},
+		{
+			auther: "Angela",
+			rating: 4,
+			review: "Awesome!"
+		},
+		{
+			auther: "Ahmed",
+			rating: 3,
+			review: "Nice!"
+		}			
+	]
+)
+```
+### 26.6. Working with The Native MongoDB Driver
+- [MongoDB Driver](https://docs.mongodb.com/drivers/)
+
 </details>
 
 
+## Section :
+<details>
+	<summary></summary>
+
+
+</details>
+
+
+## Section :
+<details>
+	<summary></summary>
+
+
+</details>
+
+## Section :
+<details>
+	<summary></summary>
+
+
+</details>
 
 
 
