@@ -1591,27 +1591,364 @@ $ db.propducts.insertOne(
 </details>
 
 
-## Section :
+## Section 27:
 <details>
-	<summary></summary>
+	<summary>Mongoose</summary>
+
+### 27.1. Introduction to Mongoose
+- [Mongoose: an alternative to the native MongoDB driver](https://mongoosejs.com/)
+-	`$ mongod` -> To start mongo DB server.
+- `$ mongo` -> To start mongo shell.
+- `$ show dbs` -> shows all existed dbs.
+- `$ use fruitDB` -> switch to fruitDB.
+- `$ db.dropDatabase()` -> drop switched db.
+- `$ npm i mongoose` -> Install mongoose into fruits folder.
+- `$ show collections` -> show db collections.
+- `$ db.fruits.find()` -> show everything inside fruits collection.
+- To create new collection and document:
+```
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/fruitsDB', {
+  useNewUrlParser: true
+});
+
+const fruitsSchema = new mongoose.Schema({
+  name:  {
+    type: String,
+    required: true
+  },
+  color: String,
+  rating: {
+    type: Number,
+    min: 0,
+    max: 5
+  }
+})
+
+const Fruit = mongoose.model('Fruit', fruitsSchema)
+const kiwi = new Fruit({
+  name: "Kiwi",
+  color: "Green",
+  rating: 1
+})
+```
+- [Mongoose documentation on the Model](https://mongoosejs.com/docs/api.html#Model).
+- To insert documents into db:
+
+```
+Fruit.insertMany([apple, kiwi, banana], function(error){
+    if(error){
+      console.log(error);
+    }else{
+      console.log("Successfully added to DB");
+    }
+})
+```
+
+### 27.2. Reading from Your Database with Mongoose
+- To find all documents in specific collection:
+```
+Fruit.find(function(error, fruits){
+  if(error){
+    console.log(error);
+  }else{
+    fruits.forEach(fruit => {
+      console.log(fruit.name);
+      mongoose.connection.close() // To close connection without have to press ctrl + c
+    })
+  }
+})
+```
+
+### 27.3. Data Validation with Mongoose
+- [Mongoose documentation on data validation](https://mongoosejs.com/docs/validation.html)
+```
+const fruitsSchema = new mongoose.Schema({
+  rating: {
+    type: Number,
+    min: 0,
+    max: 5
+  }
+})
+```
+
+### 27.4. Updating and Deleting Data Using Mongoose
+- Update and delete One record:
+
+```
+Fruit.updateOne({_id: "5fa0397233b60415cc755db4"}, {name: 'Watermelon'}, function(error, res){
+  if(error){
+    console.log(error);
+  }else{
+    console.log("Successfully Updated");
+  }
+})
+Fruit.deleteOne({_id: "5fa05cfa7cc59f34408b9bb0"}, function(error){
+  if(error){
+    console.log(error);
+  }else{
+    console.log("Successfully Deleted");
+  }
+})
+```
+
+- Delete many records:
+
+```
+Peaple.deleteMany({name: "Mai"}, function(error){
+  if(error){
+    console.log(error);
+  }else{
+    console.log("Successfully Deleted");
+  }
+})
+```
+
+### 27.5. Establishing Relationships and Embedding Documents using Mongoose
+- 
+```
+const fruitsSchema = new mongoose.Schema({
+  name:  {
+    type: String,
+    required: true
+  },
+  color: String,
+  rating: {
+    type: Number,
+    min: 0,
+    max: 5
+  }
+})
+const peopleSchema = new mongoose.Schema({
+  name: String,
+  age: Number,
+  favFruits: fruitsSchema
+})
+
+const pineapple = new Fruit({
+  name: "Pineapple",
+  color: "light green",
+  rating: 4
+})
+const person1 = new Peaple({
+  name: "John",
+  age: 30,
+  favFruits: pineapple
+})
+```
 
 
 </details>
 
 
-## Section :
+## Section 28: Putting Everything Together
+- Update todoList project to connect to Mongodb.
+- [Removing items from an array with the MongoDB $pull operator](https://docs.mongodb.com/manual/reference/operator/update/pull/).
+- [MDN on inputs of type "hidden"](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/hidden).
+- [Mongoose findByIdAndRemove() method](https://mongoosejs.com/docs/api.html#model_Model.findByIdAndRemove).
+- [How to capitalise Strings using Lodash](https://lodash.com/docs/4.17.15#capitalize)
+
+## Section 29:
 <details>
-	<summary></summary>
+	<summary>Deploying Your Web Application</summary>
+
+### 29.1. How to Deploy Web Apps with a Database
+- Put the app into internet so that everybody can access it.
+- Heroku host our node application instead our localhost `http://localhost:3000`.
+- Mongodb atlas hosr our database.
+- heroku is able to make requestes to atlas server then get data from it.
+
+### 29.2. How to Setup MongoDB Atlas
+- [Mongodb Atlas](https://www.mongodb.com/cloud/atlas).
+
+### 29.3. Deploying an App with a Database to Heroku
+- [Deploying an existing application on Heroku](https://devcenter.heroku.com/articles/preparing-a-codebase-for-heroku-deployment)
+
+</details>
+
+## Section 30:
+<details>
+	<summary>Boss Level Challenge 4 - Blog Website Upgrade</summary>
 
 
 </details>
 
-## Section :
+## Section 31:
 <details>
-	<summary></summary>
+	<summary>Build Your Own RESTful API From Scratch</summary>
+
+### 31.. What is REST?
+
+### 31.. Creating a Database with Robo 3T
+
+### 31.. Set Up Server Challenge
+
+### 31.. Set Up Server Solution
+
+### 31.. GET All Articles
+
+### 31.. POST a New Article
+
+### 31.. DELTE All Articles
+
+### 31.. Chained Route Handlers Using Express
+
+### 31.. GET a Specific Article
+
+### 31.. PUT a Specific Article
+
+### 31.. PATCH a Specific Article
+
+### 31.. DELETE a Specific Article
+
+### 31.. Download the Completed Project Code
 
 
 </details>
+
+## Section 32:
+<details>
+	<summary>Authentication & Security</summary>
+
+### 32.. Introduction to Authentication
+
+### 32.. Getting Set Up
+
+### 32.. Level 1 - Register Users with Username and Password
+
+### 32.. How to Review the Source Code
+
+### 32.. Level 2 - Database Encryption
+
+### 32.. Using Environment Variables to Keep Secrets Safe
+
+### 32.. Level 3 - Hashing Passwords
+
+### 32.. Hacking 101 ☣️
+
+### 32.. Level 4 - Salting and Hashing Passwords with bcrypt
+
+### 32.. What are Cookies and Sessions?
+
+### 32.. Using Passport.js to Add Cookies and Sessions
+
+### 32.. Level 6 - OAuth 2.0 & How to Implement Sign In with Google
+
+### 32.. Finishing Up the App - Letting Users Submit Secrets
+
+### 32.. Download the Completed Project Code
+
+
+</details>
+
+## Section 33:
+<details>
+	<summary>React.js</summary>
+
+### 33.. What is React?
+
+### 33.. What we will make in this React module
+
+### 33.. Introduction to Code Sandbox and the Structure of the Module
+
+### 33.. Introduction to JSX and Babel
+
+### 33.. JSX Code Practice
+
+### 33.. Javascript Expressions in JSX & ES6 Template Literals
+
+### 33.. Javascript Expressions in JSX Practice
+
+### 33.. JSX Attributes & Styling React Elements
+
+### 33.. Inline Styling for React Elements
+
+### 33.. React Styling Practice
+
+### 33.. React Components
+
+### 33.. React Components Practice
+
+### 33.. Javascript ES6 - Import, Export and Modules
+
+### 33.. Javascript ES6 Import, Export and Modules Practice
+
+### 33.. [Windows]​ Local Environment Setup for React Development
+
+### 33.. Keeper App Project - Part 1 Challenge
+
+### 33.. Keeper App Part 1 Solution
+
+### 33.. React Props
+
+### 33.. React Props Practice
+
+### 33.. React DevTools
+
+### 33.. Mapping Data to Components
+
+### 33.. Mapping Data to Components​ Practice
+
+### 33.. Javascript ES6 Map/Filter/Reduce
+
+### 33.. Javascript ES6 Arrow functions
+
+### 33.. Keeper App Project - Part 2
+
+### 33.. React Conditional Rendering with the Ternary Operator & AND Operator
+
+### 33.. Conditional Rendering Practice
+
+### 33.. State in React - Declarative vs. Imperative Programming
+
+### 33.. React Hooks - useState
+
+### 33.. useState Hook Practice
+
+### 33.. Javascript ES6 Object & Array Destructuring
+
+### 33.. Javascript ​ES6 Destructuring Challenge Solution
+
+### 33.. Event Handling in React
+
+### 33.. React Forms
+
+### 33.. Class Components vs. Functional Components
+
+### 33.. Changing Complex State
+
+### 33.. Changing Complex State Practice
+
+### 33.. Javascript ES6 Spread Operator
+
+### 33.. Javascript ES6 Spread Operator Practice
+
+### 33.. Managing a Component Tree
+
+### 33.. Managing a Component Tree Practice
+
+### 33.. Keeper App Project - Part 3
+
+### 33.. React Dependencies & Styling the Keeper App
+
+
+</details>
+
+## Section 34:
+<details>
+	<summary>Bonus Module: Ask Angela Anything</summary>
+
+### 34.. AAA 1 - How to Soak in Programming Concepts and more...
+
+### 34.. AAA 2 - Schedule for Learning to Code and more...
+
+### 34.. AAA 3 - How to Start Freelancing and more...
+
+### 34.. AAA 4 - The Live AMA
+
+
+</details>
+
 
 
 
