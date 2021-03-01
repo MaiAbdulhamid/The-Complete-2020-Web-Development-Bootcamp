@@ -1762,47 +1762,168 @@ const person1 = new Peaple({
 - [Mongodb Atlas](https://www.mongodb.com/cloud/atlas).
 
 ### 29.3. Deploying an App with a Database to Heroku
-- [Deploying an existing application on Heroku](https://devcenter.heroku.com/articles/preparing-a-codebase-for-heroku-deployment)
+- [Deploying an existing application on Heroku](https://devcenter.heroku.com/articles/preparing-a-codebase-for-heroku-deployment).
+- [My app On the internet](https://mighty-cove-05026.herokuapp.com/)
 
 </details>
 
-## Section 30:
-<details>
-	<summary>Boss Level Challenge 4 - Blog Website Upgrade</summary>
-
-
-</details>
+## Section 30: Boss Level Challenge 4 - Blog Website Upgrade
+- Update Blog project to connect to Mongodb.
 
 ## Section 31:
 <details>
 	<summary>Build Your Own RESTful API From Scratch</summary>
 
-### 31.. What is REST?
+### 31.1. What is REST?
+- REST stands for Representational State Transfer
+- REST is the underlying architectural principle of the web. The amazing thing about the web is the fact that clients (browsers) and servers can interact in complex ways without the client knowing anything beforehand about the server and the resources it hosts. The key constraint is that the server and client must both agree on the media used, which in the case of the web is HTML.
+- GET, POST, PUT, PATCH, DELETE.
+- PATCH: sending a piece of data that needs to be updated, instead of the entire entery.
+- We use different routes in order to access certain resources. 
 
-### 31.. Creating a Database with Robo 3T
+### 31.2. Creating a Database with Robo 3T
+- [Robo 3T](https://robomongo.org/).
+- make db collection and add some articles to it.
 
-### 31.. Set Up Server Challenge
+### 31.3. Set Up Server
+- `$ mkdir wiki-Api` -> Make a new folder called `wiki-Api` on your Desktop
+- `$ cd wiki-Api ` -> Change Directory to this new folder
+- `$ touch app.js ` -> Inside the `wiki-Api` folder, create a new file called `app.js`
+- `$ npm init -y` -> create `package.json` file.
+- `$ npm i express ejs body-parser mongoose` -> Set up a new NPM packages.
+- `$ Atom .` -> Open the project folder in Atom 
+- `$ nodemon app.js` -> Run server with nodemon
+- Set starting code:
 
-### 31.. Set Up Server Solution
+```
+const express    = require('express');
+const ejs        = require('ejs');
+const bodyParser = require('body-parser');
+const mongoose   = require('mongoose');
 
-### 31.. GET All Articles
+const app        = express();
+app.set('view engine', 'ejs');
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(express.static("public"));
 
-### 31.. POST a New Article
+//Connect to mongoose db
+mongoose.connect('mongodb://localhost:27017/wikiDB', {useNewUrlParser: true});
 
-### 31.. DELTE All Articles
+const articleSchema = new mongoose.Schema({
+  title: String,
+  content: String
+})
 
-### 31.. Chained Route Handlers Using Express
+const Article = mongoose.model('Article', articleSchema)
 
-### 31.. GET a Specific Article
+app.listen(3000, function() {
+  console.log("Server started on port 3000");
+});
+```
 
-### 31.. PUT a Specific Article
+### 31.3. GET All Articlesmongoose
+- Get all articles:
+```
+app.get('/articles', function(req, res){
+  Article.find({}, function(error, foundArticles){
+    if(error){
+      res.send(error);
+    }else{
+      res.send(foundArticles);
+    }
+  });
+})
+```
 
-### 31.. PATCH a Specific Article
+### 31.4. POST a New Article
+- Use [postman](https://www.postman.com/) to post and test data without need to frontend form.
 
-### 31.. DELETE a Specific Article
+```
+app.post('/articles', function(req, res){
+  const article = new Article({
+    title: req.body.title,
+    content: req.body.content
+  })
 
-### 31.. Download the Completed Project Code
+  article.save(function(error){
+    if(error){
+      res.send(error)
+    }else{
+      res.send("Successfully added.")
+    }
+  });
+})
+```
 
+### 31.5. DELTE All Articles
+- Delete all articles when make DELETE request with postman:
+
+```
+app.delete('/articles',function(req, res){
+  Article.deleteMany(function(error){
+    if(!error){
+      res.send("Successfully Deleted")
+    }
+  });
+})
+```
+
+### 31.6. Chained Route Handlers Using Express
+- [ExpressJS Route Parameters](https://expressjs.com/en/guide/routing.html)
+
+### 31.7. GET a Specific Article
+```
+app.route('/articles/:articleTitle')
+.get( function(req, res){
+  const articleTitle = req.params.articleTitle
+  Article.findOne({title: articleTitle}, function(error, foundArticle){
+    if(foundArticle){
+      res.send(foundArticle)
+    }else{
+      res.send("No Mathed article!")
+    }
+  });
+})
+```
+
+### 31.8. PUT a Specific Article
+```
+.put(function(req, res){
+  Article.update(
+    {title: req.params.articleTitle},
+    {title: req.body.title, content: req.body.content},
+    {overwrite: true},
+    function(error){
+      if(!error){
+        res.send()
+      }
+    }
+  )
+})
+```
+
+### 31.9. PATCH a Specific Article
+
+```
+.patch(function(req, res){
+  Article.update(
+    {title: req.params.articleTitle},
+    {$set: req.body},
+    function(error){
+      res.send(error || 'Successfully Updates.')
+    }
+  )
+})
+```
+
+### 31.10. DELETE a Specific Article
+```
+.delete(function(req, res){
+  Article.deleteOne({title: req.params.articleTitle}, function(error){
+    res.send(error || 'Successfully Deleted Corresponding article.')
+  })
+})
+```
 
 </details>
 
@@ -1810,33 +1931,109 @@ const person1 = new Peaple({
 <details>
 	<summary>Authentication & Security</summary>
 
-### 32.. Introduction to Authentication
+### 32.1. Introduction to Authentication
+- why we need Authentication?
+	- In order to associate pieces of data with users we need an account.
+	- To restrict access, like Payment processes.
+- There is 6 different levels of security.
 
-### 32.. Getting Set Up
+### 32.2. Getting Set Up
+- Dowload starter code of `Secret` project and setting up our app.
 
-### 32.. Level 1 - Register Users with Username and Password
+### 32.3. Level 1 - Register Users with Username and Password
+- Creating user account and Storing email and password into database and check if they exist in db. 
+- Create user database.
+- That step stores password into plain text into database(very bad practise).
 
-### 32.. How to Review the Source Code
+### 32.4. Level 2 - Database Encryption
+- Encryption is the process of encoding information. This process converts the original representation of the information, known as plaintext, into an alternative form known as ciphertext. Ideally, only authorized parties can decipher a ciphertext back to plaintext and access the original information.
+- [cryptii](https://cryptii.com/).
+- Install and use [mongoose-encryption](https://www.npmjs.com/package/mongoose-encryption) package.
+- It's important to add plugin to schema before creating a model.
 
-### 32.. Level 2 - Database Encryption
+### 32.5. Using Environment Variables to Keep Secrets Safe
+- Install [dotenv](https://www.npmjs.com/package/dotenv) to make `.env` file.
+- Configre it at the top -> `require('dotenv').config()`.
+- create `.env` file and add `SECRET=OurStringSecret`.
+- Use this string in `app.js` -> `process.env.SECRET`.
 
-### 32.. Using Environment Variables to Keep Secrets Safe
+### 32.6. Level 3 - Hashing Passwords
+- Hashing performs a one-way transformation on a password, turning the password into another String, called the hashed password. “One-way” means that it is practically impossible to go the other way - to turn the hashed password back into the original password. There are several mathematically complex hashing algorithms that fulfill these needs.
+- Use [md5](https://www.npmjs.com/package/md5) package to hash password.
 
-### 32.. Level 3 - Hashing Passwords
+### 32.7. Hacking 101 ☣️
+- When you think of your password as an mathmatical formula, you realize that as long as your password, the computation time that takes to hack this password increases exponentially.
+- [Hacker Typer](https://hackertyper.com/) :"D .
 
-### 32.. Hacking 101 ☣️
+### 32.8. Level 4 - Salting and Hashing Passwords with bcrypt
+- Salting involves adding random data before it is put through a cryptographic hash function.
+- With "salt round" they actually mean the cost factor. The cost factor controls how much time is needed to calculate a single BCrypt hash. The higher the cost factor, the more hashing rounds are done. Increasing the cost factor by 1 doubles the necessary time. The more time is necessary, the more difficult is brute-forcing.
+- [bcrypt](https://www.npmjs.com/package/bcrypt).
+- To change node version we need to install `nvm`.
 
-### 32.. Level 4 - Salting and Hashing Passwords with bcrypt
+```
+const bcrypt = require('bcrypt')
+const saltRounds = 10
+```
 
-### 32.. What are Cookies and Sessions?
+### 32.9. What are Cookies and Sessions?
+- Cookies and Sessions are used to store information. Cookies are only stored on the client-side machine, while sessions get stored on the client as well as a server.
+- A session ends when the user closes the browser or after leaving the site, the server will terminate the session after a predetermined period of time, commonly 30 minutes duration.
+- A session is a type of cookie. It is a period of time when a browser interact with server.
+- [Cookies in Chrome](https://support.google.com/chrome/answer/95647?co=GENIE.Platform%3DAndroid&hl=en)
 
-### 32.. Using Passport.js to Add Cookies and Sessions
+### 32.10. Using Passport.js to Add Cookies and Sessions
+- [passport](https://www.npmjs.com/package/passport)
+- [passport-local](http://www.passportjs.org/packages/passport-local/)
+- [passport-local-mongoose](https://www.npmjs.com/package/passport-local-mongoose)
+- [express-session](https://www.npmjs.com/package/express-session)
+```
+const session = require('express-session');
+const passport = require('passport');
+const passportLocalMongoose = require('passport-local-mongoose');
 
-### 32.. Level 6 - OAuth 2.0 & How to Implement Sign In with Google
+
+//initailze session and passport
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+}));
+app.use(passport.initialize())
+app.use(passport.session())
+
+...
+
+const userSchema = new mongoose.Schema({
+  email: String,
+  password: String,
+  googleId: String,
+  secret: String
+})
+
+userSchema.plugin(passportLocalMongoose);
+
+const User = mongoose.model('User', userSchema)
+
+//This three lines From passport-local-mongoose
+passport.use(User.createStrategy());
+
+//Enables passport to Create cookie(Start Session)
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
+});
+// Destroy Cookie(End session)
+passport.deserializeUser(function(id, done) {
+  User.findById(id, function(err, user) {
+    done(err, user);
+  });
+});
+```
+
+### 32.11. Level 6 - OAuth 2.0 & How to Implement Sign In with Google
 
 ### 32.. Finishing Up the App - Letting Users Submit Secrets
 
-### 32.. Download the Completed Project Code
 
 
 </details>
