@@ -1992,12 +1992,17 @@ const session = require('express-session');
 const passport = require('passport');
 const passportLocalMongoose = require('passport-local-mongoose');
 
-
+//Connect to mongoose db
+mongoose.connect('mongodb://localhost:27017/usersDB', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+mongoose.set('useCreateIndex', true)
 //initailze session and passport
 app.use(session({
   secret: 'keyboard cat',
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
 }));
 app.use(passport.initialize())
 app.use(passport.session())
@@ -2028,13 +2033,107 @@ passport.deserializeUser(function(id, done) {
     done(err, user);
   });
 });
+
+app.get('/secrets', function(req, res) {
+  User.find({'secret': {$ne: null}}, function(error, foundUser){
+    if(error){
+      console.log(error);
+    }else{
+      if(foundUser){
+        res.render('secrets', {usersWithSecret: foundUser})
+      }
+    }
+  })
+})
+app.get('/register', function(req, res) {
+  res.render('register')
+})
+// Authenticate user and Start session
+app.post('/register', function(req, res) {
+
+  User.register({
+    username: req.body.username
+  }, req.body.password, function(error, user) {
+    if (error) {
+      console.log(error);
+      res.redirect('/register')
+    } else {
+      passport.authenticate('local')(req, res, function() {
+        res.redirect('/secrets')
+      })
+    }
+  })
+})
+app.post('/login', function(req, res) {
+
+  const user = new User({
+    username: req.body.username,
+    password: req.body.password
+  })
+  req.login(user, function(error) {
+    if (error) {
+      console.log(error);
+    } else {
+      passport.authenticate('local')(req, res, function() {
+        res.redirect('/secrets')
+      })
+    }
+  })
+})
+// Deauthenticate user and end session
+app.get('/logout', function(req, res) {
+  req.logout()
+  res.redirect('/')
+})
+
 ```
+- Whenever the server gets restarted, the cookies gets deleted and the session gets restarted.
 
 ### 32.11. Level 6 - OAuth 2.0 & How to Implement Sign In with Google
+- OAuth: commonly used as a way for Internet users to grant websites or applications access to their information on other websites but without giving them the passwords.[1] This mechanism is used by companies such as Amazon,[2] Google, Facebook, Microsoft and Twitter to permit the users to share information about their accounts with third party applications or websites.
+- "Third party" has a similar meaning as third person, except in the perspective of computer stuff, the “persons” change in something like the following fashion:
 
-### 32.. Finishing Up the App - Letting Users Submit Secrets
+	- First “party” - the software itself, or the logical “I”.
+	- Second “party” - the user of the software, or the logical “You”.
+	- Third “party” - other pieces of software in the environment, or the logical “They”.
 
+- [passport-google-oauth20](http://www.passportjs.org/packages/passport-google-oauth20/)
+- [Google Developers API](https://console.developers.google.com/apis/dashboard?pli=1&project=secrets-295016&folder=&organizationId=).
 
+```
+var findOrCreate = require('mongoose-findorcreate');
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
+
+...
+
+userSchema.plugin(findOrCreate);
+
+...
+
+passport.use(new GoogleStrategy({
+    clientID: process.env.CLIENT_ID,
+    clientSecret: process.env.CLIENT_SECRET,
+    callbackURL: "http://localhost:3000/auth/google/secrets",
+    userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
+  },
+  function(accessToken, refreshToken, profile, cb) {
+    console.log(profile);
+		// FindorCreate not mongoose function, it's a description
+		// To make it work we installed mongoose-findorcreate plugin
+    User.findOrCreate({
+      googleId: profile.id
+    }, function(err, user) {
+      return cb(err, user);
+    });
+  }
+));
+```
+
+- [mongoose-findorcreate](https://www.npmjs.com/package/mongoose-findorcreate): Simple plugin for Mongoose which adds a findOrCreate method to models. This is useful for libraries like Passport which require it.
+- Goole id prevent creating the same user again when sign up or login with google.
+
+### 32.12. Finishing Up the App - Letting Users Submit Secrets
+- Add `/submit` route to show users secrets on `/secrets` page.
 
 </details>
 
