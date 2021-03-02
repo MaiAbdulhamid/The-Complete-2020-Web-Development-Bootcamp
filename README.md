@@ -1446,9 +1446,804 @@
 	<summary>Databases</summary>
 
 ### Databases Explained: SQL vs. NOSQL
-  
+- We need databases to store the data.
+-	SQL databases: Stands for Structured Query language.
+-	NOSQL databases: Stands for Not Only Structured Query language.
+- Depending on the structure of your data you will want to choose a SQL or a NOSQL database.
+- If you need to store data such as orders, customer details, products thing that have lots of relationships between each other, then you might be better to choose SQL such is MySQL.
+- If you have a website where you have something that's more of a one to many kind of relationships, this much easier to store data using NOSQL such as MongoDB.
+<img src="https://raw.githubusercontent.com/MaiAbdulhamid/The-Complete-2020-Web-Development-Bootcamp/main/images/DB.png" />
+
 </details>
 
+## Section 25:
+<details>
+	<summary>SQL</summary>
+
+### 25.1. SQL Commands: CREATE Table and INSERT Data
+- Every database doing CRUD operations (Create, Read, Update, Delete).
+- [w3schools](https://www.w3schools.com/sql/)
+- [DB Edittor](https://sqliteonline.com/#fiddle-5bbdbaef7288bo2ajn2wly03)
+- To Create new DB Table (Create):
+```
+CREATE TABLE Products (
+    ID int NOT NULL,
+    name varchar(255) NOT NULL,
+    price int,
+    PRIMARY KEY (ID)
+);
+```
+-	The PRIMARY KEY constraint uniquely identifies each record in a table.
+-	To insert into table:
+```
+INSERT INTO Products
+VALUES (1, "pencil", 10);
+```
+### 25.2. SQL Commands: READ, SELECT, and WHERE
+-	To Read from DB table(Read):
+```
+SELECT * FROM Products
+WHERE id='1';
+```
+- The `*` Means everthing inside the table.
+-	`WHERE` Followed by the condition.
+-	`=` Operator with `WHERE`, There is many other operators such as `>, <, >=, ...etc`.
+
+### 25.3. Updating Single Values and Adding Columns in SQL
+-	To Update the table record:
+```
+UPDATE Products
+SET name = "pen", price = 20
+WHERE id=1;
+```
+-	Without `WHERE` statement, it will update every record.
+- To update the table columns:
+```
+ALTER TABLE Products
+ADD stock INT;
+```
+### 25.4. SQL Commands: DELETE
+-	To Delete:
+```
+DELETE FROM Products WHERE id=1;
+```
+### 25.5. Understanding SQL Relationships, Foreign Keys and Inner Joins
+- A FOREIGN KEY is a key used to link two tables together.
+```
+CREATE TABLE Orders (
+    orderID INT NOT NULL,
+    orderNumber INT NOT NULL,
+    customerID INT,
+		productID INT,
+    PRIMARY KEY (OrderID),
+    FOREIGN KEY (customerID) REFERENCES customers(id)
+);
+```
+-	To join tables:
+```
+SELECT Orders.OrderID, Customers.first_name, Customers.last_name
+FROM Orders
+INNER JOIN Customers ON Orders.CustomerID = Customers.id;
+```
+-	[INNER JOIN ](https://www.w3schools.com/sql/sql_join_inner.asp)
+
+</details>
+
+## Section 26:
+<details>
+	<summary>MongoDB</summary>
+
+### 26.1. Installing MongoDB on Windows
+-	Go to [mongodb](https://www.mongodb.com/try/download/enterprise) to dowload it.
+-	[Install MongoDB](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/)
+### 26.2. MongoDB CRUD Operations in the Shell: Create
+-	`$ mongod` -> To start mongo DB server.
+- `$ mongo` -> To start mongo shell.
+- In the shell -> `$ help`: shows list of help cmds.
+- `$ show dbs` -> shows all existed dbs.
+- `$ use shop` -> To create new db called shop.
+- New db `shop` to be listed inside dbs, it must have some data.
+- `$ db` -> To know what db you currently worked in.
+-	[MongoDB Docs on CRUD operations](https://docs.mongodb.com/manual/crud/).
+- `$ db.propducts.insertOne({_id:1, name:"pen", price: 10})` -> if that `propducts` collection doesn't exist in the db, then it will create that collection.
+- The collections in mongoDB is similler to tables in the SQL.
+- `$ show collections` -> show all collections in the current db.
+### 26.3. MongoDB CRUD Operations in the Shell: Reading & Queries
+-	`$ db.propducts.find()` -> To Read all documents that is inside `propducts` collection.
+- `$ db.propducts.find({_id: 1})` -> find the document which has id equal to `1`.
+- `$ db.propducts.find({_id: {$gt: 1})` -> find all the documents which has id greater than `1`.
+- `$ db.propducts.find({_id: 1}, {name: 1, _id:0})` -> find the document which has id equal to `1`, and give only the `name`.
+- The second parameter in find method specify which feild to return.
+### 26.4. MongoDB CRUD Operations in the Shell: Update
+-	 `$ db.propducts.updateOne({_id: 1}, { $set: { stock: 12 })` -> update id `1`, add `stock` feild.
+### 26.. MongoDB CRUD Operations in the Shell: Delete
+- `$ db.propducts.deleteOne({_id: 2})` -> delete record `2`.
+### 26.5. Relationships in MongoDB
+- One to many relationship:
+
+```
+$ db.propducts.insertOne(
+	_id: 3,
+	name: "rubber",
+	stock: 20,
+	reviews: [
+		{
+			auther: "Mai",
+			rating: 5,
+			review: "Best Rubber!"
+		},
+		{
+			auther: "Angela",
+			rating: 4,
+			review: "Awesome!"
+		},
+		{
+			auther: "Ahmed",
+			rating: 3,
+			review: "Nice!"
+		}			
+	]
+)
+```
+### 26.6. Working with The Native MongoDB Driver
+- [MongoDB Driver](https://docs.mongodb.com/drivers/)
+
+</details>
+
+
+## Section 27:
+<details>
+	<summary>Mongoose</summary>
+
+### 27.1. Introduction to Mongoose
+- [Mongoose: an alternative to the native MongoDB driver](https://mongoosejs.com/)
+-	`$ mongod` -> To start mongo DB server.
+- `$ mongo` -> To start mongo shell.
+- `$ show dbs` -> shows all existed dbs.
+- `$ use fruitDB` -> switch to fruitDB.
+- `$ db.dropDatabase()` -> drop switched db.
+- `$ npm i mongoose` -> Install mongoose into fruits folder.
+- `$ show collections` -> show db collections.
+- `$ db.fruits.find()` -> show everything inside fruits collection.
+- To create new collection and document:
+```
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/fruitsDB', {
+  useNewUrlParser: true
+});
+
+const fruitsSchema = new mongoose.Schema({
+  name:  {
+    type: String,
+    required: true
+  },
+  color: String,
+  rating: {
+    type: Number,
+    min: 0,
+    max: 5
+  }
+})
+
+const Fruit = mongoose.model('Fruit', fruitsSchema)
+const kiwi = new Fruit({
+  name: "Kiwi",
+  color: "Green",
+  rating: 1
+})
+```
+- [Mongoose documentation on the Model](https://mongoosejs.com/docs/api.html#Model).
+- To insert documents into db:
+
+```
+Fruit.insertMany([apple, kiwi, banana], function(error){
+    if(error){
+      console.log(error);
+    }else{
+      console.log("Successfully added to DB");
+    }
+})
+```
+
+### 27.2. Reading from Your Database with Mongoose
+- To find all documents in specific collection:
+```
+Fruit.find(function(error, fruits){
+  if(error){
+    console.log(error);
+  }else{
+    fruits.forEach(fruit => {
+      console.log(fruit.name);
+      mongoose.connection.close() // To close connection without have to press ctrl + c
+    })
+  }
+})
+```
+
+### 27.3. Data Validation with Mongoose
+- [Mongoose documentation on data validation](https://mongoosejs.com/docs/validation.html)
+```
+const fruitsSchema = new mongoose.Schema({
+  rating: {
+    type: Number,
+    min: 0,
+    max: 5
+  }
+})
+```
+
+### 27.4. Updating and Deleting Data Using Mongoose
+- Update and delete One record:
+
+```
+Fruit.updateOne({_id: "5fa0397233b60415cc755db4"}, {name: 'Watermelon'}, function(error, res){
+  if(error){
+    console.log(error);
+  }else{
+    console.log("Successfully Updated");
+  }
+})
+Fruit.deleteOne({_id: "5fa05cfa7cc59f34408b9bb0"}, function(error){
+  if(error){
+    console.log(error);
+  }else{
+    console.log("Successfully Deleted");
+  }
+})
+```
+
+- Delete many records:
+
+```
+Peaple.deleteMany({name: "Mai"}, function(error){
+  if(error){
+    console.log(error);
+  }else{
+    console.log("Successfully Deleted");
+  }
+})
+```
+
+### 27.5. Establishing Relationships and Embedding Documents using Mongoose
+- 
+```
+const fruitsSchema = new mongoose.Schema({
+  name:  {
+    type: String,
+    required: true
+  },
+  color: String,
+  rating: {
+    type: Number,
+    min: 0,
+    max: 5
+  }
+})
+const peopleSchema = new mongoose.Schema({
+  name: String,
+  age: Number,
+  favFruits: fruitsSchema
+})
+
+const pineapple = new Fruit({
+  name: "Pineapple",
+  color: "light green",
+  rating: 4
+})
+const person1 = new Peaple({
+  name: "John",
+  age: 30,
+  favFruits: pineapple
+})
+```
+
+
+</details>
+
+
+## Section 28: Putting Everything Together
+- Update todoList project to connect to Mongodb.
+- [Removing items from an array with the MongoDB $pull operator](https://docs.mongodb.com/manual/reference/operator/update/pull/).
+- [MDN on inputs of type "hidden"](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/hidden).
+- [Mongoose findByIdAndRemove() method](https://mongoosejs.com/docs/api.html#model_Model.findByIdAndRemove).
+- [How to capitalise Strings using Lodash](https://lodash.com/docs/4.17.15#capitalize)
+
+## Section 29:
+<details>
+	<summary>Deploying Your Web Application</summary>
+
+### 29.1. How to Deploy Web Apps with a Database
+- Put the app into internet so that everybody can access it.
+- Heroku host our node application instead our localhost `http://localhost:3000`.
+- Mongodb atlas hosr our database.
+- heroku is able to make requestes to atlas server then get data from it.
+
+### 29.2. How to Setup MongoDB Atlas
+- [Mongodb Atlas](https://www.mongodb.com/cloud/atlas).
+
+### 29.3. Deploying an App with a Database to Heroku
+- [Deploying an existing application on Heroku](https://devcenter.heroku.com/articles/preparing-a-codebase-for-heroku-deployment).
+- [My app On the internet](https://mighty-cove-05026.herokuapp.com/)
+
+</details>
+
+## Section 30: Boss Level Challenge 4 - Blog Website Upgrade
+- Update Blog project to connect to Mongodb.
+
+## Section 31:
+<details>
+	<summary>Build Your Own RESTful API From Scratch</summary>
+
+### 31.1. What is REST?
+- REST stands for Representational State Transfer
+- REST is the underlying architectural principle of the web. The amazing thing about the web is the fact that clients (browsers) and servers can interact in complex ways without the client knowing anything beforehand about the server and the resources it hosts. The key constraint is that the server and client must both agree on the media used, which in the case of the web is HTML.
+- GET, POST, PUT, PATCH, DELETE.
+- PATCH: sending a piece of data that needs to be updated, instead of the entire entery.
+- We use different routes in order to access certain resources. 
+
+### 31.2. Creating a Database with Robo 3T
+- [Robo 3T](https://robomongo.org/).
+- make db collection and add some articles to it.
+
+### 31.3. Set Up Server
+- `$ mkdir wiki-Api` -> Make a new folder called `wiki-Api` on your Desktop
+- `$ cd wiki-Api ` -> Change Directory to this new folder
+- `$ touch app.js ` -> Inside the `wiki-Api` folder, create a new file called `app.js`
+- `$ npm init -y` -> create `package.json` file.
+- `$ npm i express ejs body-parser mongoose` -> Set up a new NPM packages.
+- `$ Atom .` -> Open the project folder in Atom 
+- `$ nodemon app.js` -> Run server with nodemon
+- Set starting code:
+
+```
+const express    = require('express');
+const ejs        = require('ejs');
+const bodyParser = require('body-parser');
+const mongoose   = require('mongoose');
+
+const app        = express();
+app.set('view engine', 'ejs');
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(express.static("public"));
+
+//Connect to mongoose db
+mongoose.connect('mongodb://localhost:27017/wikiDB', {useNewUrlParser: true});
+
+const articleSchema = new mongoose.Schema({
+  title: String,
+  content: String
+})
+
+const Article = mongoose.model('Article', articleSchema)
+
+app.listen(3000, function() {
+  console.log("Server started on port 3000");
+});
+```
+
+### 31.3. GET All Articlesmongoose
+- Get all articles:
+```
+app.get('/articles', function(req, res){
+  Article.find({}, function(error, foundArticles){
+    if(error){
+      res.send(error);
+    }else{
+      res.send(foundArticles);
+    }
+  });
+})
+```
+
+### 31.4. POST a New Article
+- Use [postman](https://www.postman.com/) to post and test data without need to frontend form.
+
+```
+app.post('/articles', function(req, res){
+  const article = new Article({
+    title: req.body.title,
+    content: req.body.content
+  })
+
+  article.save(function(error){
+    if(error){
+      res.send(error)
+    }else{
+      res.send("Successfully added.")
+    }
+  });
+})
+```
+
+### 31.5. DELTE All Articles
+- Delete all articles when make DELETE request with postman:
+
+```
+app.delete('/articles',function(req, res){
+  Article.deleteMany(function(error){
+    if(!error){
+      res.send("Successfully Deleted")
+    }
+  });
+})
+```
+
+### 31.6. Chained Route Handlers Using Express
+- [ExpressJS Route Parameters](https://expressjs.com/en/guide/routing.html)
+
+### 31.7. GET a Specific Article
+```
+app.route('/articles/:articleTitle')
+.get( function(req, res){
+  const articleTitle = req.params.articleTitle
+  Article.findOne({title: articleTitle}, function(error, foundArticle){
+    if(foundArticle){
+      res.send(foundArticle)
+    }else{
+      res.send("No Mathed article!")
+    }
+  });
+})
+```
+
+### 31.8. PUT a Specific Article
+```
+.put(function(req, res){
+  Article.update(
+    {title: req.params.articleTitle},
+    {title: req.body.title, content: req.body.content},
+    {overwrite: true},
+    function(error){
+      if(!error){
+        res.send()
+      }
+    }
+  )
+})
+```
+
+### 31.9. PATCH a Specific Article
+
+```
+.patch(function(req, res){
+  Article.update(
+    {title: req.params.articleTitle},
+    {$set: req.body},
+    function(error){
+      res.send(error || 'Successfully Updates.')
+    }
+  )
+})
+```
+
+### 31.10. DELETE a Specific Article
+```
+.delete(function(req, res){
+  Article.deleteOne({title: req.params.articleTitle}, function(error){
+    res.send(error || 'Successfully Deleted Corresponding article.')
+  })
+})
+```
+
+</details>
+
+## Section 32:
+<details>
+	<summary>Authentication & Security</summary>
+
+### 32.1. Introduction to Authentication
+- why we need Authentication?
+	- In order to associate pieces of data with users we need an account.
+	- To restrict access, like Payment processes.
+- There is 6 different levels of security.
+
+### 32.2. Getting Set Up
+- Dowload starter code of `Secret` project and setting up our app.
+
+### 32.3. Level 1 - Register Users with Username and Password
+- Creating user account and Storing email and password into database and check if they exist in db. 
+- Create user database.
+- That step stores password into plain text into database(very bad practise).
+
+### 32.4. Level 2 - Database Encryption
+- Encryption is the process of encoding information. This process converts the original representation of the information, known as plaintext, into an alternative form known as ciphertext. Ideally, only authorized parties can decipher a ciphertext back to plaintext and access the original information.
+- [cryptii](https://cryptii.com/).
+- Install and use [mongoose-encryption](https://www.npmjs.com/package/mongoose-encryption) package.
+- It's important to add plugin to schema before creating a model.
+
+### 32.5. Using Environment Variables to Keep Secrets Safe
+- Install [dotenv](https://www.npmjs.com/package/dotenv) to make `.env` file.
+- Configre it at the top -> `require('dotenv').config()`.
+- create `.env` file and add `SECRET=OurStringSecret`.
+- Use this string in `app.js` -> `process.env.SECRET`.
+
+### 32.6. Level 3 - Hashing Passwords
+- Hashing performs a one-way transformation on a password, turning the password into another String, called the hashed password. “One-way” means that it is practically impossible to go the other way - to turn the hashed password back into the original password. There are several mathematically complex hashing algorithms that fulfill these needs.
+- Use [md5](https://www.npmjs.com/package/md5) package to hash password.
+
+### 32.7. Hacking 101 ☣️
+- When you think of your password as an mathmatical formula, you realize that as long as your password, the computation time that takes to hack this password increases exponentially.
+- [Hacker Typer](https://hackertyper.com/) :"D .
+
+### 32.8. Level 4 - Salting and Hashing Passwords with bcrypt
+- Salting involves adding random data before it is put through a cryptographic hash function.
+- With "salt round" they actually mean the cost factor. The cost factor controls how much time is needed to calculate a single BCrypt hash. The higher the cost factor, the more hashing rounds are done. Increasing the cost factor by 1 doubles the necessary time. The more time is necessary, the more difficult is brute-forcing.
+- [bcrypt](https://www.npmjs.com/package/bcrypt).
+- To change node version we need to install `nvm`.
+
+```
+const bcrypt = require('bcrypt')
+const saltRounds = 10
+```
+
+### 32.9. What are Cookies and Sessions?
+- Cookies and Sessions are used to store information. Cookies are only stored on the client-side machine, while sessions get stored on the client as well as a server.
+- A session ends when the user closes the browser or after leaving the site, the server will terminate the session after a predetermined period of time, commonly 30 minutes duration.
+- A session is a type of cookie. It is a period of time when a browser interact with server.
+- [Cookies in Chrome](https://support.google.com/chrome/answer/95647?co=GENIE.Platform%3DAndroid&hl=en)
+
+### 32.10. Using Passport.js to Add Cookies and Sessions
+- [passport](https://www.npmjs.com/package/passport)
+- [passport-local](http://www.passportjs.org/packages/passport-local/)
+- [passport-local-mongoose](https://www.npmjs.com/package/passport-local-mongoose)
+- [express-session](https://www.npmjs.com/package/express-session)
+```
+const session = require('express-session');
+const passport = require('passport');
+const passportLocalMongoose = require('passport-local-mongoose');
+
+//Connect to mongoose db
+mongoose.connect('mongodb://localhost:27017/usersDB', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+mongoose.set('useCreateIndex', true)
+//initailze session and passport
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: false,
+}));
+app.use(passport.initialize())
+app.use(passport.session())
+
+...
+
+const userSchema = new mongoose.Schema({
+  email: String,
+  password: String,
+  googleId: String,
+  secret: String
+})
+
+userSchema.plugin(passportLocalMongoose);
+
+const User = mongoose.model('User', userSchema)
+
+//This three lines From passport-local-mongoose
+passport.use(User.createStrategy());
+
+//Enables passport to Create cookie(Start Session)
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
+});
+// Destroy Cookie(End session)
+passport.deserializeUser(function(id, done) {
+  User.findById(id, function(err, user) {
+    done(err, user);
+  });
+});
+
+app.get('/secrets', function(req, res) {
+  User.find({'secret': {$ne: null}}, function(error, foundUser){
+    if(error){
+      console.log(error);
+    }else{
+      if(foundUser){
+        res.render('secrets', {usersWithSecret: foundUser})
+      }
+    }
+  })
+})
+app.get('/register', function(req, res) {
+  res.render('register')
+})
+// Authenticate user and Start session
+app.post('/register', function(req, res) {
+
+  User.register({
+    username: req.body.username
+  }, req.body.password, function(error, user) {
+    if (error) {
+      console.log(error);
+      res.redirect('/register')
+    } else {
+      passport.authenticate('local')(req, res, function() {
+        res.redirect('/secrets')
+      })
+    }
+  })
+})
+app.post('/login', function(req, res) {
+
+  const user = new User({
+    username: req.body.username,
+    password: req.body.password
+  })
+  req.login(user, function(error) {
+    if (error) {
+      console.log(error);
+    } else {
+      passport.authenticate('local')(req, res, function() {
+        res.redirect('/secrets')
+      })
+    }
+  })
+})
+// Deauthenticate user and end session
+app.get('/logout', function(req, res) {
+  req.logout()
+  res.redirect('/')
+})
+
+```
+- Whenever the server gets restarted, the cookies gets deleted and the session gets restarted.
+
+### 32.11. Level 6 - OAuth 2.0 & How to Implement Sign In with Google
+- OAuth: commonly used as a way for Internet users to grant websites or applications access to their information on other websites but without giving them the passwords.[1] This mechanism is used by companies such as Amazon,[2] Google, Facebook, Microsoft and Twitter to permit the users to share information about their accounts with third party applications or websites.
+- "Third party" has a similar meaning as third person, except in the perspective of computer stuff, the “persons” change in something like the following fashion:
+
+	- First “party” - the software itself, or the logical “I”.
+	- Second “party” - the user of the software, or the logical “You”.
+	- Third “party” - other pieces of software in the environment, or the logical “They”.
+
+- [passport-google-oauth20](http://www.passportjs.org/packages/passport-google-oauth20/)
+- [Google Developers API](https://console.developers.google.com/apis/dashboard?pli=1&project=secrets-295016&folder=&organizationId=).
+
+```
+var findOrCreate = require('mongoose-findorcreate');
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
+
+...
+
+userSchema.plugin(findOrCreate);
+
+...
+
+passport.use(new GoogleStrategy({
+    clientID: process.env.CLIENT_ID,
+    clientSecret: process.env.CLIENT_SECRET,
+    callbackURL: "http://localhost:3000/auth/google/secrets",
+    userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
+  },
+  function(accessToken, refreshToken, profile, cb) {
+    console.log(profile);
+		// FindorCreate not mongoose function, it's a description
+		// To make it work we installed mongoose-findorcreate plugin
+    User.findOrCreate({
+      googleId: profile.id
+    }, function(err, user) {
+      return cb(err, user);
+    });
+  }
+));
+```
+
+- [mongoose-findorcreate](https://www.npmjs.com/package/mongoose-findorcreate): Simple plugin for Mongoose which adds a findOrCreate method to models. This is useful for libraries like Passport which require it.
+- Goole id prevent creating the same user again when sign up or login with google.
+
+### 32.12. Finishing Up the App - Letting Users Submit Secrets
+- Add `/submit` route to show users secrets on `/secrets` page.
+
+</details>
+
+## Section 33:
+<details>
+	<summary>React.js</summary>
+
+### 33.. What is React?
+
+### 33.. What we will make in this React module
+
+### 33.. Introduction to Code Sandbox and the Structure of the Module
+
+### 33.. Introduction to JSX and Babel
+
+### 33.. JSX Code Practice
+
+### 33.. Javascript Expressions in JSX & ES6 Template Literals
+
+### 33.. Javascript Expressions in JSX Practice
+
+### 33.. JSX Attributes & Styling React Elements
+
+### 33.. Inline Styling for React Elements
+
+### 33.. React Styling Practice
+
+### 33.. React Components
+
+### 33.. React Components Practice
+
+### 33.. Javascript ES6 - Import, Export and Modules
+
+### 33.. Javascript ES6 Import, Export and Modules Practice
+
+### 33.. [Windows]​ Local Environment Setup for React Development
+
+### 33.. Keeper App Project - Part 1 Challenge
+
+### 33.. Keeper App Part 1 Solution
+
+### 33.. React Props
+
+### 33.. React Props Practice
+
+### 33.. React DevTools
+
+### 33.. Mapping Data to Components
+
+### 33.. Mapping Data to Components​ Practice
+
+### 33.. Javascript ES6 Map/Filter/Reduce
+
+### 33.. Javascript ES6 Arrow functions
+
+### 33.. Keeper App Project - Part 2
+
+### 33.. React Conditional Rendering with the Ternary Operator & AND Operator
+
+### 33.. Conditional Rendering Practice
+
+### 33.. State in React - Declarative vs. Imperative Programming
+
+### 33.. React Hooks - useState
+
+### 33.. useState Hook Practice
+
+### 33.. Javascript ES6 Object & Array Destructuring
+
+### 33.. Javascript ​ES6 Destructuring Challenge Solution
+
+### 33.. Event Handling in React
+
+### 33.. React Forms
+
+### 33.. Class Components vs. Functional Components
+
+### 33.. Changing Complex State
+
+### 33.. Changing Complex State Practice
+
+### 33.. Javascript ES6 Spread Operator
+
+### 33.. Javascript ES6 Spread Operator Practice
+
+### 33.. Managing a Component Tree
+
+### 33.. Managing a Component Tree Practice
+
+### 33.. Keeper App Project - Part 3
+
+### 33.. React Dependencies & Styling the Keeper App
+
+
+</details>
+
+## Section 34:
+<details>
+	<summary>Bonus Module: Ask Angela Anything</summary>
+
+### 34.. AAA 1 - How to Soak in Programming Concepts and more...
+
+### 34.. AAA 2 - Schedule for Learning to Code and more...
+
+### 34.. AAA 3 - How to Start Freelancing and more...
+
+### 34.. AAA 4 - The Live AMA
+
+
+</details>
 
 
 
