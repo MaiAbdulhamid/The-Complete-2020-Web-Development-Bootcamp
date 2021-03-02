@@ -14,12 +14,12 @@ app.use(express.static('public'))
 /*
 Database server admin username
 
-admin-mai
-RUvDTvBAQB9Ymdrs
+username
+password
 */
 //connect To mongodb
 const mongoose   = require('mongoose')
-const dbUrl = 'mongodb+srv://admin-mai:Mai.mai95@cluster0.gfufl.mongodb.net/todoListDB?retryWrites=true&w=majority'
+const dbUrl = 'mongodb+srv://<username>:<password>@cluster0.gfufl.mongodb.net/todolistDB'
 mongoose.connect(dbUrl, {useNewUrlParser: true})
 //Item Schema
 const itemsSchema   = new mongoose.Schema({
@@ -143,7 +143,7 @@ app.get('/:customListName', function(req, res){
 
 let port = process.env.PORT;
 if (port == null || port == "") {
-  port = 8000;
+  port = 3000;
 }
 app.listen(port, function(req, res) {
   console.log("Herocu server has started.");
