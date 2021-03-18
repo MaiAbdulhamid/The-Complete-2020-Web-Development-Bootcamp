@@ -2141,35 +2141,36 @@ passport.use(new GoogleStrategy({
 <details>
 	<summary>React.js</summary>
 
-### 33.. What is React?
+### 33.1. What is React?
+- [React](https://reactjs.org/)
 
-### 33.. What we will make in this React module
+### 33.2. What we will make in this React module
 
-### 33.. Introduction to Code Sandbox and the Structure of the Module
+### 33.3. Introduction to Code Sandbox and the Structure of the Module
 
-### 33.. Introduction to JSX and Babel
+### 33.4. Introduction to JSX and Babel
 
-### 33.. JSX Code Practice
+### 33.5. JSX Code Practice
 
-### 33.. Javascript Expressions in JSX & ES6 Template Literals
+### 33.6. Javascript Expressions in JSX & ES6 Template Literals
 
-### 33.. Javascript Expressions in JSX Practice
+### 33.7. Javascript Expressions in JSX Practice
 
-### 33.. JSX Attributes & Styling React Elements
+### 33.8. JSX Attributes & Styling React Elements
 
-### 33.. Inline Styling for React Elements
+### 33.9. Inline Styling for React Elements
 
-### 33.. React Styling Practice
+### 33.10. React Styling Practice
 
-### 33.. React Components
+### 33.11. React Components
 
-### 33.. React Components Practice
+### 33.12. React Components Practice
 
-### 33.. Javascript ES6 - Import, Export and Modules
+### 33.13. Javascript ES6 - Import, Export and Modules
 
-### 33.. Javascript ES6 Import, Export and Modules Practice
+### 33.14. Javascript ES6 Import, Export and Modules Practice
 
-### 33.. [Windows]​ Local Environment Setup for React Development
+### 33.15. [Windows]​ Local Environment Setup for React Development
 
 ### 33.. Keeper App Project - Part 1 Challenge
 
