@@ -2145,24 +2145,45 @@ passport.use(new GoogleStrategy({
 - [React](https://reactjs.org/)
 
 ### 33.2. What we will make in this React module
+- Take a look on projects that we will build.
 
 ### 33.3. Introduction to Code Sandbox and the Structure of the Module
+- [Codesandbox](https://codesandbox.io/)
 
 ### 33.4. Introduction to JSX and Babel
+- [Start](https://codesandbox.io/s/introduction-to-jsx-h8ub1?fontsize=14&module=%2Fpublic%2Findex.html%20babeljs.io)
+- [End](https://codesandbox.io/s/introduction-to-jsx-oofqn?fontsize=14)
 
 ### 33.5. JSX Code Practice
+- [Start](https://codesandbox.io/s/introduction-to-jsx-zp681?fontsize=14)
+- [End](https://codesandbox.io/s/jsx-code-challenge-completed-ot01f?fontsize=14)
 
 ### 33.6. Javascript Expressions in JSX & ES6 Template Literals
+- [Start](https://codesandbox.io/s/javascript-expressions-in-jsx-llr3w)
+- [End]()
 
 ### 33.7. Javascript Expressions in JSX Practice
+- [Start]()
+- [End]()
 
 ### 33.8. JSX Attributes & Styling React Elements
+- [Start]()
+- [End]()
 
 ### 33.9. Inline Styling for React Elements
+- [Start]()
+- [End]()
+
 
 ### 33.10. React Styling Practice
+- [Start]()
+- [End]()
+
 
 ### 33.11. React Components
+- [Start]()
+- [End]()
+
 
 ### 33.12. React Components Practice
 
