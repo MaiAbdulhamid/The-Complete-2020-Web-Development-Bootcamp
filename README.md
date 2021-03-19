@@ -2218,73 +2218,81 @@ passport.use(new GoogleStrategy({
 - [End](https://codesandbox.io/s/react-props-gslmr?fontsize=14)
 
 ### 33.19. React Props Practice
-- [Start]()
-- [End]()
+- [Start](https://codesandbox.io/s/react-props-practice-4khpy?fontsize=14)
+- [End](https://codesandbox.io/s/react-props-practice-completed-c6fkx?fontsize=14)
 
 | HTML attributes  | React props |
 | ------------- | ------------- |
-| <img src="" />  | <img />  |
+| <img src="https://github.com/MaiAbdulhamid/The-Complete-2020-Web-Development-Bootcamp/blob/main/images/html-attr.png" />  | <img src="https://github.com/MaiAbdulhamid/The-Complete-2020-Web-Development-Bootcamp/blob/main/images/props.png" />  |
 
 
 ### 33.20. React DevTools
-- [Start]()
-- [End]()
+- [Start](https://codesandbox.io/s/react-devtools-dk9gj?fontsize=14)
+- [Chrome React Dev Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
+- [End](https://codesandbox.io/s/react-devtools-completed-wku4k?fontsize=14)
 
 ### 33.21. Mapping Data to Components
-- [Start]()
-- [End]()
+- [Start](https://codesandbox.io/s/mapping-components-81wml?fontsize=14)
+- [End](https://codesandbox.io/s/mapping-components-y6z4c?fontsize=14)
 
 ### 33.22. Mapping Data to Components​ Practice
-- [Start]()
-- [End]()
+- [Start](https://codesandbox.io/s/mapping-components-practice-6fkfr?fontsize=14)
+- [The Description List Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl)
+- [Emojimeanings.net](https://www.emojimeanings.net/list-smileys-people-whatsapp)
+- [End](https://codesandbox.io/s/mapping-components-practice-37h04?fontsize=14)
 
 ### 33.23. Javascript ES6 Map/Filter/Reduce
-- [Start]()
-- [End]()
+- [Start](https://codesandbox.io/s/mapping-components-practice-completed-h7sm6?fontsize=14)
+- [End](https://codesandbox.io/s/mapfilterreduce-3sm6u?fontsize=14)
 
 ### 33.24. Javascript ES6 Arrow functions
-- [Start]()
-- [End]()
+- [Start](https://codesandbox.io/s/es6-arrow-functions-y8jhk?fontsize=14)
+- [Arrow Functions](https://hacks.mozilla.org/2015/06/es6-in-depth-arrow-functions/)
+- [End](https://codesandbox.io/s/es6-arrow-functions-gbtv7?fontsize=14)
 
 ### 33.25. Keeper App Project - Part 2
+- [Start](https://codesandbox.io/s/keeper-app-part-2-b5w06)
+- [End](https://codesandbox.io/s/keeper-app-part-2-completed-4dr3p?fontsize=14&hidenavigation=1&theme=dark)
+
+### 33.26. React Conditional Rendering with the Ternary Operator & AND Operator
 - [Start]()
 - [End]()
 
-### 33.. React Conditional Rendering with the Ternary Operator & AND Operator
+### 33.27. Conditional Rendering Practice
+- [Start]()
+- [End]()
 
-### 33.. Conditional Rendering Practice
+### 33.28. State in React - Declarative vs. Imperative Programming
 
-### 33.. State in React - Declarative vs. Imperative Programming
+### 33.29. React Hooks - useState
 
-### 33.. React Hooks - useState
+### 33.30. useState Hook Practice
 
-### 33.. useState Hook Practice
+### 33.31. Javascript ES6 Object & Array Destructuring
 
-### 33.. Javascript ES6 Object & Array Destructuring
+### 33.32. Javascript ​ES6 Destructuring Challenge Solution
 
-### 33.. Javascript ​ES6 Destructuring Challenge Solution
+### 33.33. Event Handling in React
 
-### 33.. Event Handling in React
+### 33.34. React Forms
 
-### 33.. React Forms
+### 33.35. Class Components vs. Functional Components
 
-### 33.. Class Components vs. Functional Components
+### 33.36. Changing Complex State
 
-### 33.. Changing Complex State
+### 33.37. Changing Complex State Practice
 
-### 33.. Changing Complex State Practice
+### 33.38. Javascript ES6 Spread Operator
 
-### 33.. Javascript ES6 Spread Operator
+### 33.39. Javascript ES6 Spread Operator Practice
 
-### 33.. Javascript ES6 Spread Operator Practice
+### 33.40. Managing a Component Tree
 
-### 33.. Managing a Component Tree
+### 33.41. Managing a Component Tree Practice
 
-### 33.. Managing a Component Tree Practice
+### 33.42. Keeper App Project - Part 3
 
-### 33.. Keeper App Project - Part 3
-
-### 33.. React Dependencies & Styling the Keeper App
+### 33.43. React Dependencies & Styling the Keeper App
 
 
 </details>
