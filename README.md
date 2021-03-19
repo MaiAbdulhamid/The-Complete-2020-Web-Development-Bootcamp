@@ -2160,58 +2160,95 @@ passport.use(new GoogleStrategy({
 
 ### 33.6. Javascript Expressions in JSX & ES6 Template Literals
 - [Start](https://codesandbox.io/s/javascript-expressions-in-jsx-llr3w)
-- [End]()
+- [End](https://codesandbox.io/s/javascript-expressions-in-jsx-fmhnm?fontsize=14)
+- [Statements vs. Expressions](https://www.youtube.com/watch?v=WVyCrI1cHi8&list=PL-xu4i_QDSxcoDNeh8rx5-pHCCTOg0XsI)
 
 ### 33.7. Javascript Expressions in JSX Practice
-- [Start]()
-- [End]()
+- [Start](https://codesandbox.io/s/javascript-expressions-in-jsx-completed-1fde0?fontsize=14)
+- [End](https://codesandbox.io/s/javascript-expressions-in-jsx-practice-71uik?fontsize=14)
 
 ### 33.8. JSX Attributes & Styling React Elements
-- [Start]()
-- [End]()
+- [Start](https://codesandbox.io/s/javascript-expressions-in-jsx-practice-completed-ekgvl?fontsize=14)
+- [End](https://codesandbox.io/s/jsx-attributes-and-styling-kkycr?fontsize=14)
+- Write any html attribute in the camel Case.
+- [Standard HTML attributes](https://www.w3schools.com/tags/ref_standardattributes.asp)
+- [Lorem Picsum](https://picsum.photos/)
 
 ### 33.9. Inline Styling for React Elements
-- [Start]()
-- [End]()
-
+- One reasons to use inline styles is if we want to change style of element based on action.
+- With jsx, The `style` attribute requires value as a javascript Object.
+- Write any css properity in camel case.
 
 ### 33.10. React Styling Practice
-- [Start]()
-- [End]()
-
+- [Start](https://codesandbox.io/s/inline-styling-in-jsx-completed-zpc72?fontsize=14)
+- [End](https://codesandbox.io/s/react-styling-practice-xpn8u?fontsize=14)
 
 ### 33.11. React Components
+- [Start](https://www.appbrewery.co/p/web-development-course-resources/)
+- [End](https://codesandbox.io/s/react-components-j66pt?fontsize=14)
+- [Airbnb Style Guide for React](https://github.com/airbnb/javascript/tree/master/react)
+
+### 33.12. React Components Practice
+- [Start](https://codesandbox.io/s/react-components-3brog?fontsize=14)
+- [End](https://codesandbox.io/s/react-components-practice-completed-2ksvn?fontsize=14&hidenavigation=1&theme=dark)
+
+### 33.13. Javascript ES6 - Import, Export and Modules
+- [Start](https://codesandbox.io/s/es6-importexport-modules-2otbz?fontsize=14)
+- [Node require() vs ES6 import/export](https://stackoverflow.com/questions/31354559/using-node-js-require-vs-es6-import-export).
+- [End](https://codesandbox.io/s/es6-importexport-modules-enyxr?fontsize=14)
+
+### 33.14. Javascript ES6 Import, Export and Modules Practice
+- [Start](https://codesandbox.io/s/es6-importexport-practice-4j2p9?fontsize=14)
+- [End](https://codesandbox.io/s/es6-importexport-modules-enyxr?fontsize=14)
+
+### 33.15. [Windows]​ Local Environment Setup for React Development
+- [Node](https://nodejs.org/en/)
+- [Babel syntax highlighting for code editors](https://babeljs.io/docs/en/editors)
+- [Create a new react app](https://reactjs.org/docs/create-a-new-react-app.html)
+- [Where to get support if you get stuck](https://reactjs.org/community/support.html)
+
+### 33.16. Keeper App Project - Part 1 Challenge
+- [Start](https://codesandbox.io/s/keeper-app-part-1-completed-oplw1?fontsize=14)
+
+### 33.17. Keeper App Part 1 Solution
+- [End](https://codesandbox.io/s/keeper-app-part-1-starting-l1pp6?fontsize=14)
+
+### 33.18. React Props
+- [Start](https://codesandbox.io/s/react-props-8xxq5?fontsize=14)
+- [End](https://codesandbox.io/s/react-props-gslmr?fontsize=14)
+
+### 33.19. React Props Practice
 - [Start]()
 - [End]()
 
+| HTML attributes  | React props |
+| ------------- | ------------- |
+| <img src="" />  | <img />  |
 
-### 33.12. React Components Practice
 
-### 33.13. Javascript ES6 - Import, Export and Modules
+### 33.20. React DevTools
+- [Start]()
+- [End]()
 
-### 33.14. Javascript ES6 Import, Export and Modules Practice
+### 33.21. Mapping Data to Components
+- [Start]()
+- [End]()
 
-### 33.15. [Windows]​ Local Environment Setup for React Development
+### 33.22. Mapping Data to Components​ Practice
+- [Start]()
+- [End]()
 
-### 33.. Keeper App Project - Part 1 Challenge
+### 33.23. Javascript ES6 Map/Filter/Reduce
+- [Start]()
+- [End]()
 
-### 33.. Keeper App Part 1 Solution
+### 33.24. Javascript ES6 Arrow functions
+- [Start]()
+- [End]()
 
-### 33.. React Props
-
-### 33.. React Props Practice
-
-### 33.. React DevTools
-
-### 33.. Mapping Data to Components
-
-### 33.. Mapping Data to Components​ Practice
-
-### 33.. Javascript ES6 Map/Filter/Reduce
-
-### 33.. Javascript ES6 Arrow functions
-
-### 33.. Keeper App Project - Part 2
+### 33.25. Keeper App Project - Part 2
+- [Start]()
+- [End]()
 
 ### 33.. React Conditional Rendering with the Ternary Operator & AND Operator
 
