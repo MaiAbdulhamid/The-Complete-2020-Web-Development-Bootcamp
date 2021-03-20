@@ -6,14 +6,14 @@
   <summary>Front-End Web Development</summary>
 	
   ### 1.1. How Does the Internet Actually Work?
-  -	**Internet** is a long piece of wire, And the wire connect different computers to each other. It allows computers to transfer data through this giant wire
+  -	**Internet** is a long piece of wire, And that wire connects different computers to each other. It allows computers to transfer data through this giant wire
   -	A server is a computer that provides files and data to other computers, it allows access 24/7.
   -	A client is a computer that any user is used to access the internet.
-  -	When browser request a website, the request sent to **ISP** (Internet server provider: The company we pay for internet service) then it search at DNS that contains websites IP addresses. Once the DNS finds the IP address it sends it back to the browser vis ISP. Then the browser sends a direct request through ISP and this message will be delivered via Internet Backbone to the server that is located that IP address. On that server there is all files that needed to view the website home page. The server sends this files back to the client through the internet backbone and client get to see website in the browser. All of that happens in milliseconds.
+  -	When the browser request a website, the request is sent to **ISP** (Internet server provider: The company we pay for internet service) then it searches at DNS that contains the web site's IP addresses. Once the DNS finds the IP address it sends it back to the browser vis ISP. Then the browser sends a direct request through ISP and this message will be delivered via Internet Backbone to the server that is located at that IP address. On that server, all files are needed to view the website home page. The server sends these files back to the client through the internet backbone and the client gets to see the website in the browser. All of that happens in milliseconds.
 
   ### 1.2. How Do Websites Actually Work?
-  -	To access web page we need browser (allows to look up ip address and recives data from server).
-  -	Data from server contains html, css, and js files.
+  -	To access the web page we need a browser (allows to look up at IP address and receives data from the server).
+  -	Data from the server contains HTML, CSS, and js files.
 
   ### 1.3. To get started
   -	Need Browser (chrome recommended)
@@ -42,7 +42,7 @@
   -	Comments  are not interpreted by the compiler ```<!-- Comment -- >```.
 
   ### 2.3. What is The HTML Boilerplate?
-  -	It Is a code template that could be reuse.
+  -	It Is a code template that could be reused.
 
   ```
   <!doctype html>
@@ -64,7 +64,7 @@
   </body>
   </html>
   ```
-  -	<code>meta</code> tag utf-8 tell the browser that all text in the page are encoded using utf-8 encoding system wich is the standered encoding.
+  -	<code>meta</code> tag utf-8 tell the browser that all texts on the page are encoded using utf-8 encoding system which is the standard encoding.
   -	Unicode “utf-8” has all characters and emojis.
   -	There is a different types of <code>meta</code> tags for diffrent purposes.
 
@@ -127,14 +127,14 @@
   -	To submit <code>form</code> button use <code>input</code> with <code>type=”submit”</code>.
 
   ### 3.3. publish website
-  -	use github to publish free.
-  -	Make new repository.
-  -	Initialize with readme file.
+  -	use GitHub to publish free.
+  -	Make a new repository.
+  -	Initialize with a readme file.
   -	Upload project files
-  -	Give version a name and commit.
-  -	Go to settings -> github pages -> sourse
-  -	Change source from none to main branch.
-  -	Now website can be accessed by internet.
+  -	Give the version a name and commit.
+  -	Go to settings -> GitHub pages -> source
+  -	Change source from none to the main branch.
+  -	Now the website can be accessed by the internet.
   
 </details>
   
@@ -148,7 +148,7 @@
   -	Styling html.
 
   ### 4.2. Inline css
-  -	Going into the tag and change style ```attribute = "property:value;"```.
+  -	Going into the tag and change style ``` attribute = "property:value;" ```.
 
   ### 4.3. Internal css
   -	Add <code>style</code> tag inside the <code>head</code> tag.
@@ -167,7 +167,7 @@
   ```
   -	No website is completely unstyled. That means that there is <em>default styles</em> being applied by the browser.
   -	<code>hr</code> tag has border style default values.
-  -	One of the most important role in css is realize that everything in html is box, and the style of these boxes can be affected by changing css styles.
+  -	One of the most important role in CSS is to realize that everything in HTML is a box, and the style of these boxes can be affected by changing CSS styles.
   -	<code>height</code> property isn’t uniqe.
   -	<code>background-color</code> , <code>height</code>, <code>width</code> properties.
   -	Change default values to achieve the style needed.
@@ -178,12 +178,12 @@
   -	Anything in html is affected with this external css.
   -	This the best way to apply css.
 
-  ### 4.5. Debug css code
-  -	Errors in console for link href for external file.
-  -	Inline styles overrides the external and internal styles.
-  -	Internal styles overrides the external styles.
+  ### 4.5. Debug CSS code
+  -	Errors in the console for link href for an external file.
+  -	Inline styles override the external and internal styles.
+  -	Internal styles override the external styles.
 
-  ### 4.6. The Anatomy of css syntax
+  ### 4.6. The Anatomy of CSS syntax
 
   ```
   selector {
@@ -224,7 +224,7 @@
 
   -	<code>class</code> can be used for a group of related items.
   -	<code>id</code> used to apply specific styles to a single element.
-  -	Any html element can have more than one class.
+  -	Any HTML element can have more than one class.
   -	A pseudo-class is used to define a special state of an element
 
   ```
@@ -244,33 +244,33 @@
   ### 5.1. What are favicons
   -	It started as an image that appears when the user adds the site to the favorites list, and now it is an image that appears next to the title of the site page.
   -	Favicon.com to create the favicon.
-  -	Import it using link tag with rel=”icon” inside head tag.
+  -	Import it using link tag with `rel=”icon”` inside the head tag.
   ### 5.2. HTML Divs
-  -	Div is special html element that’s allows us to divide content into separate containers or boxs.
-  -	It have a height if specify it using style or if it have a content.
+  -	Div is a special HTML element that allows us to divide content into separate containers or boxes.
+  -	It has a height if specify it using style or if it has a content.
   ### 5.3. Box Model
-  -	Width and height of element are pushing any other element.
+  -	Width and height of the element are pushing any other element.
   -	Border-width make outside border and affect the size of that element.
-  -	Padding make spaces inside the element and affect the size of that element.
+  -	Padding makes spaces inside the element and affects the size of that element.
   -	Margin makes space around elements and pushing them away.
   -	Inspect in chrome developer tools show box model to customize element.
   ### 5.4. CSS display property
-  -	block elemnts takes the whole width of the document.
+  -	block elements take the whole width of the document.
   -	it doesn't allow another element to set at the same line.
-  -	inline elements takes the width of the content only.
+  -	inline elements take the width of the content only.
   -	it doesn't allow to change the element width.
-  -	there is inline-block value, that allows to change width and set elements at the same line.
-  -	img element treats as inline-block.
+  -	there is an inline-block value, that allows to change width and set elements at the same line.
+  -	`img` element treats as an inline-block.
   -	none value removes the element from the web page as it didn't exist.
   -	visibility: hidden -> disappear the element but still exist at the dom.
   ### 5.5. CSS Static and Relative Positioning
-  -	there is default roles despite any css styles.
-    -	first role : content is everything -> content is the first thing that determined how large things get displayed and what the height and width will be.
-    -	second role : the order of elements that comes from html code -> how we write code into html file is how it be displayed.
-    -	third role : children sit on parents -> that means that child goes on top of the parent(static position).
-  -	To make changes into the order of elements use position property.
-  -	static position is the default position of all html elements.
-  -	relative position it allows us to position element that we select relative to how it would be positioned had it been static.
+  -	there are default roles despite any CSS styles.
+    -	first role: content is everything -> content is the first thing that determined how large things get displayed and what the height and width will be.
+    -	second role: the order of elements that comes from HTML code -> how we write code into HTML file is how it be displayed.
+    -	third role: children sit on parents -> that means that child goes on top of the parent(static position).
+  -	To make changes to the order of elements use position property.
+  -	static position is the default position of all HTML elements.
+  -	Relative position it allows us to position element that we select relative to how it would be positioned had it been static.
   -	coordinates: top, bottom, left, right -> determines we want to move element.
   -	when move element with relative position it doesn't affect any other thing in the screen.
   -	it as if the old position is kept and everything else flows around it.
@@ -2255,44 +2255,77 @@ passport.use(new GoogleStrategy({
 - [End](https://codesandbox.io/s/keeper-app-part-2-completed-4dr3p?fontsize=14&hidenavigation=1&theme=dark)
 
 ### 33.26. React Conditional Rendering with the Ternary Operator & AND Operator
-- [Start]()
-- [End]()
+- [Start](https://codesandbox.io/s/conditional-rendering-yfdes?fontsize=14&hidenavigation=1&theme=dark)
+- [Using the Logical && in React](https://reactjs.org/docs/conditional-rendering.html#inline-if-with-logical--operator)
+- [End](https://codesandbox.io/s/conditional-rendering-ovu1v?fontsize=14&hidenavigation=1&theme=dark)
 
 ### 33.27. Conditional Rendering Practice
+- [Start](https://codesandbox.io/s/conditional-rendering-uzp9m?fontsize=14&hidenavigation=1&theme=dark)
+- [End](https://codesandbox.io/s/conditional-rendering-practice-78b21?fontsize=14&hidenavigation=1&theme=dark&file=/src/index.js)
+
+### 33.28. State in React - Declarative vs. Imperative Programming
+- [Demo](https://codesandbox.io/s/introduction-to-state-completed-kzfro)
+
+### 33.29. React Hooks - useState
+- [Start](https://codesandbox.io/s/testground-wd3vs?fontsize=14&hidenavigation=1&theme=dark)
+- [usestate](https://reactjs.org/docs/hooks-reference.html#usestate)
+- [End](https://codesandbox.io/s/usestate-hook-ylxqj?fontsize=14&hidenavigation=1&theme=dark)
+
+### 33.30. useState Hook Practice
 - [Start]()
 - [End]()
 
-### 33.28. State in React - Declarative vs. Imperative Programming
-
-### 33.29. React Hooks - useState
-
-### 33.30. useState Hook Practice
-
 ### 33.31. Javascript ES6 Object & Array Destructuring
+- [Start]()
+- [End]()
 
 ### 33.32. Javascript ​ES6 Destructuring Challenge Solution
+- [Start]()
+- [End]()
 
 ### 33.33. Event Handling in React
+- [Start]()
+- [End]()
 
 ### 33.34. React Forms
+- [Start]()
+- [End]()
 
 ### 33.35. Class Components vs. Functional Components
+- [Start]()
+- [End]()
 
 ### 33.36. Changing Complex State
+- [Start]()
+- [End]()
 
 ### 33.37. Changing Complex State Practice
+- [Start]()
+- [End]()
 
 ### 33.38. Javascript ES6 Spread Operator
+- [Start]()
+- [End]()
 
 ### 33.39. Javascript ES6 Spread Operator Practice
+- [Start]()
+- [End]()
 
 ### 33.40. Managing a Component Tree
+- [Start]()
+- [End]()
 
 ### 33.41. Managing a Component Tree Practice
+- [Start]()
+- [End]()
 
 ### 33.42. Keeper App Project - Part 3
+- [Start]()
+- [End]()
 
 ### 33.43. React Dependencies & Styling the Keeper App
+- [Start]()
+- [End]()
 
 
 </details>
@@ -2311,6 +2344,8 @@ passport.use(new GoogleStrategy({
 
 
 </details>
+
+
 
 
 
