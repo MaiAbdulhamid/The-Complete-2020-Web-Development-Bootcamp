@@ -2272,28 +2272,29 @@ passport.use(new GoogleStrategy({
 - [End](https://codesandbox.io/s/usestate-hook-ylxqj?fontsize=14&hidenavigation=1&theme=dark)
 
 ### 33.30. useState Hook Practice
-- [Start]()
-- [End]()
+- [Start](https://codesandbox.io/s/usestate-hook-practice-k0g69?fontsize=14&hidenavigation=1&theme=dark)
+- [End](https://codesandbox.io/s/usestate-hook-practice-completed-t99f4)
 
 ### 33.31. Javascript ES6 Object & Array Destructuring
-- [Start]()
-- [End]()
+- [Start](https://codesandbox.io/s/es6-destructuring-ide4v?fontsize=14&hidenavigation=1&theme=dark)
+- [Destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
 
 ### 33.32. Javascript ​ES6 Destructuring Challenge Solution
-- [Start]()
-- [End]()
+- [End](https://codesandbox.io/s/es6-destructuring-zvjn9?fontsize=14&hidenavigation=1&theme=dark)
 
 ### 33.33. Event Handling in React
-- [Start]()
-- [End]()
+- [Start](https://codesandbox.io/s/event-handling-in-react-2tltl?fontsize=14&hidenavigation=1&theme=dark)
+- [HTML Event Attributes](https://www.w3schools.com/html/html_attributes.asp)
+- [End](https://codesandbox.io/s/event-handling-in-react-completed-61rti?fontsize=14)
 
 ### 33.34. React Forms
-- [Start]()
-- [End]()
+- [Start](https://codesandbox.io/s/react-forms-23oen?fontsize=14)
+- [Controlled Components in Forms](https://reactjs.org/docs/forms.html#controlled-components)
+- [End](https://codesandbox.io/s/react-forms-4vy2h?fontsize=14)
 
 ### 33.35. Class Components vs. Functional Components
-- [Start]()
-- [End]()
+- [State and Lifecycle](https://reactjs.org/docs/state-and-lifecycle.html)
+- [Intro to Hooks](https://reactjs.org/docs/hooks-intro.html)
 
 ### 33.36. Changing Complex State
 - [Start]()
