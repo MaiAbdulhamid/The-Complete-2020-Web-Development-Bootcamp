@@ -2297,28 +2297,32 @@ passport.use(new GoogleStrategy({
 - [Intro to Hooks](https://reactjs.org/docs/hooks-intro.html)
 
 ### 33.36. Changing Complex State
-- [Start]()
-- [End]()
+- [Start](https://codesandbox.io/s/changing-complex-state-ruz1e?fontsize=14&hidenavigation=1&theme=dark)
+- [Synthetic Events](https://reactjs.org/docs/events.html)
+- Never use the `event` inside state hooks methods, because that react passes a synthatic `event` not a real event.
+- [End](https://codesandbox.io/s/changing-complex-state-3hyn7?fontsize=14&hidenavigation=1&theme=dark)
 
 ### 33.37. Changing Complex State Practice
-- [Start]()
-- [End]()
+- [Start](https://codesandbox.io/s/changing-complex-state-practice-8uqvh?fontsize=14&hidenavigation=1&theme=dark)
+- [End](https://codesandbox.io/s/changing-complex-state-practice-73221?fontsize=14&hidenavigation=1&theme=dark)
 
 ### 33.38. Javascript ES6 Spread Operator
-- [Start]()
-- [End]()
+- [Start](https://codesandbox.io/s/es6-spread-operator-fuc1n?fontsize=14&hidenavigation=1&theme=dark)
+- [Spread_syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+- [JS ES6](https://stackoverflow.com/questions/11508463/javascript-set-object-key-by-variable?noredirect=1&lq=1)
+- [End](https://codesandbox.io/s/es6-spread-operator-3w3pp?fontsize=14&hidenavigation=1&theme=dark)
 
 ### 33.39. Javascript ES6 Spread Operator Practice
-- [Start]()
-- [End]()
+- [Start](https://codesandbox.io/s/es6-spread-operator-practice-qjpji?fontsize=14&hidenavigation=1&theme=dark)
+- [End](https://codesandbox.io/s/es6-spread-operator-practice-ecbsk?fontsize=14&hidenavigation=1&theme=dark)
 
 ### 33.40. Managing a Component Tree
-- [Start]()
-- [End]()
+- [Start](https://codesandbox.io/s/es6-spread-operator-practice-completed-mm4qj?fontsize=14&hidenavigation=1&theme=dark)
+- [End](https://codesandbox.io/s/managing-a-component-tree-compeleted-cmb9l?fontsize=14&hidenavigation=1&theme=dark)
 
 ### 33.41. Managing a Component Tree Practice
-- [Start]()
-- [End]()
+- [Start](https://codesandbox.io/s/managing-a-component-tree-practice-2hzdh?fontsize=14&hidenavigation=1&theme=dark)
+- [End](https://codesandbox.io/s/managing-a-component-tree-practice-oe6y7?fontsize=14&hidenavigation=1&theme=dark)
 
 ### 33.42. Keeper App Project - Part 3
 - [Start]()
@@ -2327,21 +2331,6 @@ passport.use(new GoogleStrategy({
 ### 33.43. React Dependencies & Styling the Keeper App
 - [Start]()
 - [End]()
-
-
-</details>
-
-## Section 34:
-<details>
-	<summary>Bonus Module: Ask Angela Anything</summary>
-
-### 34.. AAA 1 - How to Soak in Programming Concepts and more...
-
-### 34.. AAA 2 - Schedule for Learning to Code and more...
-
-### 34.. AAA 3 - How to Start Freelancing and more...
-
-### 34.. AAA 4 - The Live AMA
 
 
 </details>
